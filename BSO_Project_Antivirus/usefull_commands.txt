@@ -1,0 +1,1 @@
+uname -r to check linux kernel version
