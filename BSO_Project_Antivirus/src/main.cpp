@@ -2,10 +2,11 @@
 #include<string>
 #include<stdio.h>
 #include<cstring>
-#include "../include/HashCalculator.h"
+//#include "../include/HashCalculator.h"
 #include "../include/AntivirusController.h";
+#include "../include/FileHandler.h";
 
-void UserInteraction();
+void MainMenu();
 void Startup();
 
 using namespace std;
@@ -13,12 +14,15 @@ using namespace std;
 
 int main(){
 	cout << "Hello World \n";
-	UserInteraction();
+	vector<string> temp = ReadFile("../virusHashDatabase/VirusHashes.txt");
+	//MainMenu();
+	cout<<temp[1];
+
 	return 0;
 }
 
 
-void UserInteraction(){
+void MainMenu(){
 	while(1==1){
 		cout<<"What do you wanna do: \n 1 - Scan file\n";
 		cout<<" 2- Scan whole package \n Any - End ";
