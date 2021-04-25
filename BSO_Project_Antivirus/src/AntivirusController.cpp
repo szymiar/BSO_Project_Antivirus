@@ -1,5 +1,6 @@
 #include "../include/AntivirusController.h"
 #include "../include/HashCalculator.h"
+#include "../include/FileHandler.h";
 using namespace std;
 
 
@@ -8,6 +9,7 @@ using namespace std;
 void ScanFile(string filename){
 	string hash = GetFileHash(filename);
 	if(IsDangerous(hash)){
+		cout<<"\nDangerous file \n ";
 		QuarantineFile(filename);
 		}
 	else{
@@ -26,9 +28,13 @@ void ScanPackage(string path){
 
 
 bool IsDangerous(string hash){
-	if(hash == "To implement"){
-		return true;
+	vector<string> database = ReadFile("../virusHashDatabase/VirusHashes.txt");
+	for(int i = 0; i< database.size(); i++){
+		if(hash == database.at(i)){
+			return true;
+		}
 	}
+
 	return false;
 	}
 

@@ -14,9 +14,7 @@ using namespace std;
 
 int main(){
 	cout << "Hello World \n";
-	vector<string> temp = ReadFile("../virusHashDatabase/VirusHashes.txt");
-	//MainMenu();
-	cout<<temp[1];
+	MainMenu();
 
 	return 0;
 }
@@ -33,7 +31,7 @@ void MainMenu(){
 			string filename;
 			cin>> filename;
 			ScanFile(filename);
-			cout<<"\n File scan finished\n";
+			cout<<"\n\n File scan finished \n\n";
 			continue;
 		}
 		else if (first_decision == 2){
