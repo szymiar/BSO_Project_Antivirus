@@ -15,11 +15,17 @@ vector<string> ReadFile(string filename){
 	}
 
 
-void  AppendToFile(vector<string> hashes){
-	//Add new Hashes
+void  AppendToFile(vector<string> hashes, string filename){
+	ofstream outfile;
+	outfile.open(filename, ios_base::app);
+	for(int i = 0; i< hashes.size(); i++){
+		outfile << hashes.at(i) << "\n";
+	}
 	}
 
 
-void AppendToFile(string hash){
-	//Add new hash
+void AppendToFile(string hash, string filename){
+	ofstream outfile;
+	outfile.open(filename, ios_base::app);
+	outfile<< hash << "\n";
 	}
