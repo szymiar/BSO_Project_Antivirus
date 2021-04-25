@@ -23,7 +23,7 @@ int main(){
 void MainMenu(){
 	while(1==1){
 		cout<<"What do you wanna do: \n 1 - Scan file\n";
-		cout<<" 2- Scan whole package \n Any - End ";
+		cout<<" 2- Scan whole package \n Any - End \n";
 		int first_decision;
 		cin >> first_decision;
 		if(first_decision == 1){	
@@ -39,7 +39,6 @@ void MainMenu(){
 			string path;
 			cin >> path;
 			ScanPackage(path);
-			cout<<"Not implemented\n";
 			continue;
 		}
 		else {
@@ -51,8 +50,8 @@ void MainMenu(){
 
 
 void Startup(){
-	//Load Files from database into memory (i.e. class HashDatabse)
-
+	//HashDatabase to Singleton, load it at the beggining from file
+	//And then use it in IsDangerous
 
 
 	}

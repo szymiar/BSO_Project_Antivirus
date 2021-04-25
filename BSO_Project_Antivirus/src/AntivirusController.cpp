@@ -15,22 +15,18 @@ void ScanFile(string filename){
 		}
 	else{
 		cout<<filename <<":\n";
-		cout<<"File is safe\n";
+		cout<<"\nFile is safe\n\n";
 	}
 	}
 
 
 void ScanPackage(string path){
-	//Iterate through all subfiles of path	
-	// ScanFile(currentFile)
 	string file;
 	for(const auto& dirEntry : experimental::filesystem::recursive_directory_iterator(path)){
 		file = dirEntry.path();
 		ScanFile(file);
 	}
-	
-
-	cout<<"\n Will arrive soon\n";
+	cout<< "\n Package scanned \n\n ";	
 	}
 
 
@@ -50,6 +46,6 @@ bool IsDangerous(string hash){
 
 
 void QuarantineFile(string filename){
-	cout<<"Quarantine service to implement\n";
+	cout<<"\n\nQuarantine service to implement\n\n";
 	}
 	
