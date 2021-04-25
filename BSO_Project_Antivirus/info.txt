@@ -1,0 +1,1 @@
+g++ HashCalculator.cpp FileHandler.cpp AntivirusController.cpp main.cpp -lstdc++fs -o main
