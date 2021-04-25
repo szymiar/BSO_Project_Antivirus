@@ -3,8 +3,10 @@
 #include<stdio.h>
 #include<cstring>
 #include "../include/HashCalculator.h"
+#include "../include/AntivirusController.h";
 
 void UserInteraction();
+void Startup();
 
 using namespace std;
 
@@ -26,12 +28,15 @@ void UserInteraction(){
 			cout<<"Enter filename\n";
 			string filename;
 			cin>> filename;
-			string cmdin = GetFileHash(filename);
-			cout<<"Calculated hash = : ";
-			cout<< cmdin << "\n ";
+			ScanFile(filename);
+			cout<<"\n File scan finished\n";
 			continue;
 		}
 		else if (first_decision == 2){
+			cout<<"Enter path\n";
+			string path;
+			cin >> path;
+			ScanPackage(path);
 			cout<<"Not implemented\n";
 			continue;
 		}
@@ -40,8 +45,13 @@ void UserInteraction(){
 			}
 		}
 	}
-	
 
 
 
+void Startup(){
+	//Load Files from database into memory (i.e. class HashDatabse)
+
+
+
+	}
 

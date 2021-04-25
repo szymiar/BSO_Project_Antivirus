@@ -17,17 +17,3 @@ string GetFileHash(string filename){
 	return data.substr(0,64);
 	}
 
-
-
-
-
-
-
-
-bool IsDangerous(string hash){
-	if(hash == "To implement"){
-		return true;
-	}
-	return false;
-	}
-

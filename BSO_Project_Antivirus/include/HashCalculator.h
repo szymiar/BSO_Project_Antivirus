@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef HASHCALCLATOR_H
+#define HASHCALCULATOR_H
 
 #include <iostream>
 #include <string>
