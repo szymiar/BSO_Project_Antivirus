@@ -9,19 +9,23 @@ void ActionMenu(int decision){
 	string path;	
 	switch(decision){
 	case 1: //ScanFIle
-		cout<<"\n Enter file name";
+		cout<<"\n Enter file name\n";
 		cin>> filename;
 		ScanFile(filename);
 		cout<<"\n\n File scan finished \n\n";
 		break;
 	case 2: //Scan Package
-		cout<<"Enter path\n";
+		cout<<"\nEnter path\n";
 		cin >> path;
 		ScanPackage(path);
 		cout<< "\nPackage scan finished\n\n";
 	break;
 	case 3: //Update Hash Database (read from file)
-		cout<<"Not implemented yet\n\n";
+		cout<<"\n Enter the name of file from which to update database\n";
+		cin>>filename;
+		UpdateHashDatabase(filename);
+		//Update vector<string> with hashes also
+		cout<<"\n Virus database updated\n";
 	break;
 	case 4: //Display quarantined files
 		cout<< "Not implemented yet\n\n";

@@ -15,5 +15,6 @@ bool IsDangerous(std::string hash);
 
 void QuarantineFile(std::string filename);
 
+void UpdateHashDatabase(std::string filename);
 #endif
 

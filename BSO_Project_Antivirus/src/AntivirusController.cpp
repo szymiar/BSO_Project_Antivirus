@@ -49,3 +49,9 @@ void QuarantineFile(string filename){
 	cout<<"\n\nQuarantine service to implement\n\n";
 	}
 	
+
+void UpdateHashDatabase(string filename){
+	vector<string> hashes = ReadFile(filename);
+	AppendToFile(hashes, "../virusHashDatabase/VirusHashes.txt");
+	
+	}
