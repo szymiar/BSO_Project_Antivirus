@@ -2,6 +2,7 @@
 #include "../include/HashCalculator.h"
 #include "../include/FileHandler.h"
 #include "../include/HashDatabase.h"
+#include "../include/QuarantineServiceHandler.h"
 using namespace std;
 
 
@@ -48,7 +49,8 @@ bool IsDangerous(string hash){
 
 
 void QuarantineFile(string filename){
-	cout<<"\n\nQuarantine service to implement\n\n";
+	ChangeFilePermissions(filename);
+	MoveFileToSafety(filename);
 	}
 	
 

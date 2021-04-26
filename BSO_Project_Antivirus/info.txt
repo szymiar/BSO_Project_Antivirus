@@ -1,1 +1,1 @@
-g++ HashCalculator.cpp FileHandler.cpp AntivirusController.cpp main.cpp -lstdc++fs -o main
+g++ HashCalculator.cpp FileHandler.cpp AntivirusController.cpp AppController.cpp HashDatabase.cpp main.cpp -lstdc++fs -o main
