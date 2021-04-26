@@ -1,6 +1,7 @@
 #include "../include/AntivirusController.h"
 #include "../include/HashCalculator.h"
-#include "../include/FileHandler.h";
+#include "../include/FileHandler.h"
+#include "../include/HashDatabase.h"
 using namespace std;
 
 
@@ -9,7 +10,7 @@ using namespace std;
 void ScanFile(string filename){
 	string hash = GetFileHash(filename);
 	if(IsDangerous(hash)){
-		cout<<filename <<":\n";
+		cout<<filename <<":\n";		
 		cout<<"\nDangerous file \n ";
 		QuarantineFile(filename);
 		}
@@ -33,9 +34,10 @@ void ScanPackage(string path){
 
 
 bool IsDangerous(string hash){
-	vector<string> database = ReadFile("../virusHashDatabase/VirusHashes.txt");
-	for(int i = 0; i< database.size(); i++){
-		if(hash == database.at(i)){
+	//vector<string> database = ReadFile("../virusHashDatabase/VirusHashes.txt");
+	HashDatabase *hashDatabase = hashDatabase->GetInstance();
+	for(int i = 0; i< hashDatabase->GetHashes().size(); i++){
+		if(hash == hashDatabase -> GetHashes().at(i)){
 			return true;
 		}
 	}
@@ -53,5 +55,7 @@ void QuarantineFile(string filename){
 void UpdateHashDatabase(string filename){
 	vector<string> hashes = ReadFile(filename);
 	AppendToFile(hashes, "../virusHashDatabase/VirusHashes.txt");
+	HashDatabase *hashDatabase = hashDatabase -> GetInstance();
+	hashDatabase->AddHashes(hashes); //Update singleton
 	
 	}

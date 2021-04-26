@@ -1,5 +1,6 @@
-#include "../include/AppController.h";
-#include "../include/AntivirusController.h";
+#include "../include/AppController.h"
+#include "../include/AntivirusController.h"
+#include "../include/HashDatabase.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ void ActionMenu(int decision){
 		cout<< "Not implemented yet\n\n";
 	break;	
 	case 5: // Additional security service (advanced)
-		cout<<"\n Comming soon in advanced version";
+		cout<<"\n Comming soon in advanced version\n";
 	break;
 	case 6: //End program
 		EndProgram();
@@ -43,8 +44,8 @@ void ActionMenu(int decision){
 
 void MainMenu(){
 	while(1==1){
-		cout<<"What do you wanna do: \n 1 - Scan file\n";
-		cout<<" 2- Scan whole package \n";
+		cout<<"\nWhat do you wanna do: \n 1 - Scan file\n";
+		cout<<" 2 - Scan whole package \n";
 		cout<<" 3 - Update Hash Database \n";
 		cout<<" 4 - Display quarantined files \n";
 		cout<<" 5 - Additional security service \n";
@@ -70,6 +71,7 @@ void MainMenu(){
 void Startup(){
 	//HashDatabase to Singleton, load it at the beggining from file
 	//And then use it in IsDangerous
+	HashDatabase *hashDatabase = hashDatabase->GetInstance();
 	}
 
 void EndProgram(){

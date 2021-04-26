@@ -3,21 +3,24 @@
 
 #include <iostream>
 #include <string>
+#include "FileHandler.h"
 
 class HashDatabase
 {
 private:
-	std::string[] Hashes;
+static HashDatabase *instance;
 
-public:
+std::vector<std::string> Hashes;
 
-	std::string[] GetHashes();
-	
-	HashDatabase(std::string[] hashes){
-		Hashes = hashes;
-	}
+HashDatabase();
+public: 
+ static HashDatabase *GetInstance();
+std::vector<std::string> GetHashes();
+
+void AddHashes(std::vector<std::string> newHashes);
+
 };
+//HashDatabase *instance;
 
-std::string[] GetHashes();
 #endif
 
