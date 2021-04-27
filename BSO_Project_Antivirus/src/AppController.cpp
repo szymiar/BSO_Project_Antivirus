@@ -1,6 +1,7 @@
 #include "../include/AppController.h"
 #include "../include/AntivirusController.h"
 #include "../include/HashDatabase.h"
+#include "../include/QuarantineServiceHandler.h"
 
 using namespace std;
 
@@ -25,11 +26,12 @@ void ActionMenu(int decision){
 		cout<<"\n Enter the name of file from which to update database\n";
 		cin>>filename;
 		UpdateHashDatabase(filename);
-		//Update vector<string> with hashes also
 		cout<<"\n Virus database updated\n";
 	break;
 	case 4: //Display quarantined files
-		cout<< "Not implemented yet\n\n";
+		for(const auto& dirEntry : experimental::filesystem::recursive_directory_iterator(QuarantineFolder)){
+			cout<<"\n"<< dirEntry.path() <<"\n";
+		}
 	break;	
 	case 5: // Additional security service (advanced)
 		cout<<"\n Comming soon in advanced version\n";

@@ -35,7 +35,6 @@ void ScanPackage(string path){
 
 
 bool IsDangerous(string hash){
-	//vector<string> database = ReadFile("../virusHashDatabase/VirusHashes.txt");
 	HashDatabase *hashDatabase = hashDatabase->GetInstance();
 	for(int i = 0; i< hashDatabase->GetHashes().size(); i++){
 		if(hash == hashDatabase -> GetHashes().at(i)){
@@ -51,6 +50,7 @@ bool IsDangerous(string hash){
 void QuarantineFile(string filename){
 	ChangeFilePermissions(filename);
 	MoveFileToSafety(filename);
+	cout<<"\n\n Quarantine applied to the file \n\n";
 	}
 	
 
