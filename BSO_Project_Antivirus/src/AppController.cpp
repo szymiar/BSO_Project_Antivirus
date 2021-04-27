@@ -57,10 +57,11 @@ void MainMenu(){
 		decision = stoi(dc);
 		}
 		catch(...){
-		cout<<"\nEnter number\n";
+		cout<<"\nEnter proper number\n";
 		}
 		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 || decision == 5 || decision == 6) {
 			ActionMenu(decision);
+			cout<<"\n\n===========================\n\n";
 			continue;
 		}
  		cout<<"\n Wrong input\n";
