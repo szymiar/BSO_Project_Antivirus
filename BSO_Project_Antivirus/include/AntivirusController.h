@@ -1,10 +1,6 @@
 #ifndef ANTIVIRUSCONTROLLER_H
 #define ANTIVIRUSCONTROLLER_H
 
-#include <iostream>
-#include <string>
-#include <stdio.h>
-#include <cstring>
 #include <experimental/filesystem>
 
 void ScanFile(std::string filename);

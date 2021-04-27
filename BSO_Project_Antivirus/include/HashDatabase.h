@@ -1,8 +1,6 @@
 #ifndef HASHDATABASE_H
 #define HASHDATABASE_H
 
-#include <iostream>
-#include <string>
 #include "FileHandler.h"
 
 class HashDatabase
