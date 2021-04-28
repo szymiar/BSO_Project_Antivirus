@@ -31,7 +31,6 @@ void ScanPackage(string path){
 		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0   || filename.rfind("/proc/",0)==0 || filename.rfind("/sys/kernel/debug",0)==0|| filename.rfind("/dev/",0)==0 || filename.rfind("/run",0)==0){
 		continue;
 		}
-		cout<<"\n"<<filename<<"\n";
 		ScanFile(filename);
 	}
 
