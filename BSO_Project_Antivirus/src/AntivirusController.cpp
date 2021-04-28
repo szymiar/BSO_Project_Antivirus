@@ -4,7 +4,7 @@
 #include "../include/HashDatabase.h"
 #include "../include/QuarantineServiceHandler.h"
 using namespace std;
-
+namespace fs = std::filesystem;
 
 
 
@@ -23,11 +23,18 @@ void ScanFile(string filename){
 
 
 void ScanPackage(string path){
-	string file;
-	for(const auto& dirEntry : experimental::filesystem::recursive_directory_iterator(path)){
-		file = dirEntry.path();
-		ScanFile(file);
+	string filename;
+	
+	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
+
+		filename = dirEntry.path();
+		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0   || filename.rfind("/proc/",0)==0 || filename.rfind("/sys/kernel/debug",0)==0|| filename.rfind("/dev/",0)==0 || filename.rfind("/run",0)==0){
+		continue;
+		}
+		cout<<"\n"<<filename<<"\n";
+		ScanFile(filename);
 	}
+
 	cout<< "\n Package scanned \n\n ";	
 	}
 
@@ -61,3 +68,6 @@ void UpdateHashDatabase(string filename){
 	hashDatabase->AddHashes(hashes); //Update singleton
 	
 	}
+
+
+

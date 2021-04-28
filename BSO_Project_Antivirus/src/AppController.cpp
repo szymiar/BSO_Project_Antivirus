@@ -4,7 +4,7 @@
 #include "../include/QuarantineServiceHandler.h"
 
 using namespace std;
-
+namespace fs = std::filesystem;
 
 void ActionMenu(int decision){
 	string filename;
@@ -29,7 +29,7 @@ void ActionMenu(int decision){
 		cout<<"\n Virus database updated\n";
 	break;
 	case 4: //Display quarantined files
-		for(const auto& dirEntry : experimental::filesystem::recursive_directory_iterator(QuarantineFolder)){
+		for(const auto& dirEntry : fs::recursive_directory_iterator(QuarantineFolder)){
 			cout<<"\n"<< dirEntry.path() <<"\n";
 		}
 	break;	

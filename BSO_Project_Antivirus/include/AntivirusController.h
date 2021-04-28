@@ -1,7 +1,9 @@
 #ifndef ANTIVIRUSCONTROLLER_H
 #define ANTIVIRUSCONTROLLER_H
 
-#include <experimental/filesystem>
+#include <filesystem>
+#include <sys/vfs.h>
+#include <string>
 
 void ScanFile(std::string filename);
 
@@ -12,5 +14,6 @@ bool IsDangerous(std::string hash);
 void QuarantineFile(std::string filename);
 
 void UpdateHashDatabase(std::string filename);
+
 #endif
 
