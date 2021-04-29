@@ -18,7 +18,6 @@ std::vector<std::string> GetHashes();
 void AddHashes(std::vector<std::string> newHashes);
 
 };
-//HashDatabase *instance;
 
 #endif
 

@@ -17,7 +17,7 @@ vector<string> ReadFile(string filename){
 void  AppendToFile(vector<string> hashes, string filename){
 	ofstream outfile;
 	outfile.open(filename, ios_base::app);
-	for(int i = 0; i< hashes.size(); i++){
+	for(unsigned int i = 0; i< hashes.size(); i++){
 		outfile << hashes.at(i) << "\n";
 		}
 	}

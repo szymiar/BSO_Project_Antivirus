@@ -42,7 +42,7 @@ void ScanPackage(string path){
 
 bool IsDangerous(string hash){
 	HashDatabase *hashDatabase = hashDatabase->GetInstance();
-	for(int i = 0; i< hashDatabase->GetHashes().size(); i++){
+	for(unsigned int i = 0; i< hashDatabase->GetHashes().size(); i++){
 		if(hash == hashDatabase -> GetHashes().at(i)){
 			return true;
 		}
@@ -62,7 +62,7 @@ void QuarantineFile(string filename){
 
 void UpdateHashDatabase(string filename){
 	vector<string> hashes = ReadFile(filename);
-	AppendToFile(hashes, "../virusHashDatabase/VirusHashes.txt");
+	AppendToFile(hashes, "virusHashDatabase/VirusHashes.txt");
 	HashDatabase *hashDatabase = hashDatabase -> GetInstance();
 	hashDatabase->AddHashes(hashes); //Update singleton
 	

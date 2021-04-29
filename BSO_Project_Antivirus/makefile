@@ -10,4 +10,10 @@ install:
 	sudo chown root:root virusHashDatabase
 	sudo chmod 711 virusHashDatabase
 	cd src && make
+	sudo chown root:root antivirusBSO
+	sudo chmod 744 antivirusBSO
+	sudo chown root:root src/makefile
+	sudo chmod 744 src/makefile
+	sudo chown root:root makefile
+	sudo chmod 744 makefile
 	

@@ -1,14 +1,16 @@
-IDIC = ../include	
+IDIC := ../include
+ODIR := obj
 CC := g++	
 CFLAGS := -Wall -Wextra -lstdc++fs -std=c++17
 LDFLAGS := -lstdc++fs -std=c++17
 SRC :=$(wildcard *.cpp)	
-OBJ := $(SRC:.cpp=.o)	
-OUT := antivirusTest	
+_OBJ := $(SRC:.cpp=.o)
+OBJ := $(patsubst %, $(ODIR)/%,$(_OBJ))	
+OUT := ../antivirusBSO	
 $(OUT): $(OBJ)	
 	$(CC) $^ -o $@ $(LDFLAGS)	
 	
-%.o: %.cpp	
+$(ODIR)/%.o: %.cpp	
 	$(CC) $(CFLAGS) $< -c -o $@	
 	
 .PHONY: clean	
