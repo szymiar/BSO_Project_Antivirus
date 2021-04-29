@@ -1,11 +1,10 @@
 #include "../include/FileHandler.h"
 
-using namespace std;
 
-vector<string> ReadFile(string filename){
-	vector <string> hashes;
-	ifstream fil(filename);
-	string hash;
+std::vector<std::string> ReadFile(std::string filename){
+	std::vector <std::string> hashes;
+	std::ifstream fil(filename);
+	std::string hash;
 	while(getline(fil,hash)){
 		hashes.push_back(hash);
 	}
@@ -14,16 +13,16 @@ vector<string> ReadFile(string filename){
 	}
 
 
-void  AppendToFile(vector<string> hashes, string filename){
-	ofstream outfile;
-	outfile.open(filename, ios_base::app);
+void  AppendToFile(std::vector<std::string> hashes, std::string filename){
+	std::ofstream outfile;
+	outfile.open(filename, std::ios_base::app);
 	for(unsigned int i = 0; i< hashes.size(); i++){
 		outfile << hashes.at(i) << "\n";
 		}
 	}
 
-bool CheckFileExistence(string filename)
+bool CheckFileExistence(std::string filename)
 	{
-	ifstream infile(filename.c_str());
+	std::ifstream infile(filename.c_str());
 	return infile.good();
 	}

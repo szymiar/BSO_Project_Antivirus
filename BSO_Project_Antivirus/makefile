@@ -18,3 +18,14 @@ install:
 	sudo chown root:root makefile
 	sudo chmod 744 makefile
 	
+.PHONY: uninstall	
+uninstall:	
+	cd src && sudo make clean	
+	
+
+
+
+.PHONY: update	
+update:	
+	cd src && sudo make	
+

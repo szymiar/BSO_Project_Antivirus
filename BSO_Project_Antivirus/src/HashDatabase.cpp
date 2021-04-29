@@ -3,14 +3,14 @@
 
 
  HashDatabase *HashDatabase::GetInstance(){
-	if(!instance)
-	instance = new HashDatabase;
+	if(!instance){
+	instance = new HashDatabase;}
 	return instance;
 }
 
 
 HashDatabase::HashDatabase(){
-	Hashes = ReadFile("../virusHashDatabase/VirusHashes.txt");
+	Hashes = ReadFile("virusHashDatabase/VirusHashes.txt");
 }
 
 std::vector<std::string> HashDatabase::GetHashes(){

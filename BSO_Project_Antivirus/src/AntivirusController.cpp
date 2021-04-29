@@ -3,27 +3,26 @@
 #include "../include/FileHandler.h"
 #include "../include/HashDatabase.h"
 #include "../include/QuarantineServiceHandler.h"
-using namespace std;
 namespace fs = std::filesystem;
 
 
 
-void ScanFile(string filename){
-	string hash = GetFileHash(filename);
+void ScanFile(std::string filename){
+	std::string hash = GetFileHash(filename);
 	if(IsDangerous(hash)){
-		cout<<filename <<":\n";		
-		cout<<"\nDangerous file \n ";
+		std::cout<<filename <<":\n";	
+		std::cout<<"\nDangerous file \n ";
 		QuarantineFile(filename);
 		}
 	else{
-		cout<<filename <<":\n";
-		cout<<"\nFile is safe\n\n";
+		std::cout<<filename <<":\n";
+		std::cout<<"\nFile is safe\n\n";
 	}
 	}
 
 
-void ScanPackage(string path){
-	string filename;
+void ScanPackage(std::string path){
+	std::string filename;
 	
 	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
 
@@ -34,16 +33,16 @@ void ScanPackage(string path){
 		ScanFile(filename);
 	}
 
-	cout<< "\n Package scanned \n\n ";	
+	std::cout<< "\n Package scanned \n\n ";	
 	}
 
 
 
 
-bool IsDangerous(string hash){
-	HashDatabase *hashDatabase = hashDatabase->GetInstance();
-	for(unsigned int i = 0; i< hashDatabase->GetHashes().size(); i++){
-		if(hash == hashDatabase -> GetHashes().at(i)){
+bool IsDangerous(std::string hash){
+	//HashDatabase *hashDatabase = hashDatabase->GetInstance();
+	for(unsigned int i = 0; i< HashDatabase::GetInstance()->GetHashes().size(); i++){
+		if(hash == HashDatabase::GetInstance()->GetHashes().at(i)){
 			return true;
 		}
 	}
@@ -53,18 +52,18 @@ bool IsDangerous(string hash){
 
 
 
-void QuarantineFile(string filename){
+void QuarantineFile(std::string filename){
 	ChangeFilePermissions(filename);
 	MoveFileToSafety(filename);
-	cout<<"\n\n Quarantine applied to the file \n\n";
+	std::cout<<"\n\n Quarantine applied to the file \n\n";
 	}
 	
 
-void UpdateHashDatabase(string filename){
-	vector<string> hashes = ReadFile(filename);
+void UpdateHashDatabase(std::string filename){
+	std::vector<std::string> hashes = ReadFile(filename);
 	AppendToFile(hashes, "virusHashDatabase/VirusHashes.txt");
-	HashDatabase *hashDatabase = hashDatabase -> GetInstance();
-	hashDatabase->AddHashes(hashes); //Update singleton
+	//HashDatabase *hashDatabase = hashDatabase -> GetInstance();
+	HashDatabase::GetInstance()->AddHashes(hashes); //Update singleton
 	
 	}
 

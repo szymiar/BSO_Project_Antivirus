@@ -1,0 +1,100 @@
+[
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/HashDatabase.o",
+            "HashDatabase.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "HashDatabase.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/QuarantineServiceHandler.o",
+            "QuarantineServiceHandler.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "QuarantineServiceHandler.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/main.o",
+            "main.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "main.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/FileHandler.o",
+            "FileHandler.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "FileHandler.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/HashCalculator.o",
+            "HashCalculator.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "HashCalculator.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/AppController.o",
+            "AppController.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "AppController.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-std=c++17",
+            "-o",
+            "obj/AntivirusController.o",
+            "AntivirusController.cpp"
+        ],
+        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "file": "AntivirusController.cpp"
+    }
+]

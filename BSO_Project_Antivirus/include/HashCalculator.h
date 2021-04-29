@@ -1,4 +1,4 @@
-#ifndef HASHCALCLATOR_H
+#ifndef HASHCALCULATOR_H
 #define HASHCALCULATOR_H
 
 #include <iostream>
