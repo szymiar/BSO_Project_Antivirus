@@ -8,23 +8,35 @@ namespace fs = std::filesystem;
 
 void ActionMenu(int decision){
 	string filename;
-	string path;	
+	string path;
 	switch(decision){
 	case 1: //ScanFIle
 		cout<<"\n Enter file name\n";
 		cin>> filename;
+		if(!CheckFileExistence(filename)){
+		cout<<"\n File does not exist\n\n";
+		break;
+		}
 		ScanFile(filename);
 		cout<<"\n\n File scan finished \n\n";
 		break;
 	case 2: //Scan Package
 		cout<<"\nEnter path\n";
 		cin >> path;
+		if(!CheckFileExistence(path)){
+		cout<<"\n Wrong path\n\n";
+		break;
+		}
 		ScanPackage(path);
 		cout<< "\nPackage scan finished\n\n";
 	break;
 	case 3: //Update Hash Database (read from file)
 		cout<<"\n Enter the name of file from which to update database\n";
 		cin>>filename;
+		if(!CheckFileExistence(filename)){
+		cout<<"\n File does not exist\n\n";
+		break;
+		}
 		UpdateHashDatabase(filename);
 		cout<<"\n Virus database updated\n";
 	break;
@@ -67,7 +79,6 @@ void MainMenu(){
 			continue;
 		}
  		cout<<"\n Wrong input\n";
-		
 		}
 	}
 

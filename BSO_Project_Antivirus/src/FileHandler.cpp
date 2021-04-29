@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 vector<string> ReadFile(string filename){
 	vector <string> hashes;
 	ifstream fil(filename);
@@ -20,12 +19,11 @@ void  AppendToFile(vector<string> hashes, string filename){
 	outfile.open(filename, ios_base::app);
 	for(int i = 0; i< hashes.size(); i++){
 		outfile << hashes.at(i) << "\n";
-	}
+		}
 	}
 
-
-void AppendToFile(string hash, string filename){
-	ofstream outfile;
-	outfile.open(filename, ios_base::app);
-	outfile<< hash << "\n";
+bool CheckFileExistence(string filename)
+	{
+	ifstream infile(filename.c_str());
+	return infile.good();
 	}

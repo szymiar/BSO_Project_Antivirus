@@ -6,9 +6,12 @@
 #include <vector>
 #include <fstream>
 
+
 std::vector<std::string> ReadFile(std::string filename);
+
 void AppendToFile(std::vector<std::string> hashes,std::string filename);
-void AppendToFile(std::string hash, std::string filename);
+
+bool CheckFileExistence(std::string filename);
 
 #endif
 
