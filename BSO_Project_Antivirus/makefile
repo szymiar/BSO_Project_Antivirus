@@ -9,6 +9,7 @@ install:
 	sudo chmod 644 virusHashDatabase/VirusHashes.txt
 	sudo chown root:root virusHashDatabase
 	sudo chmod 711 virusHashDatabase
+	mkdir src/obj || true
 	cd src && make
 	sudo chown root:root antivirusBSO
 	sudo chmod 744 antivirusBSO
