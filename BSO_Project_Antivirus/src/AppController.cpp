@@ -14,7 +14,7 @@ void ActionMenu(int decision){
 		std::cout<<"\n Enter file name\n";
 		std::cin>> filename;
 		if(!CheckFileExistence(filename)){
-		std::cout<<"\n File does not exist\n\n";
+			std::cout<<"\n File does not exist\n\n";
 		break;
 		}
 		ScanFile(filename);
