@@ -53,7 +53,38 @@ void ActionMenu(int decision){
 	break;
 
 	}
+}
+
+void PassiveScanActionMenu(int decision){
+	std::string filename;
+	std::string path;
+	switch(decision){
+	case 1: //Turn on passive scanning
+		//Passive scaning handler/controller etc
+		std::cout<<"\n Passive scanning turned on\n";
+		break;
+	case 2: //Turn off
+		std::cout<<"\n Passive scanning turned off\n";
+		break;
+	case 3: //Add folder to passive scan
+		std::cout<<"\n Enter the name of folder to add\n";
+		std::cin>>filename;
+		if(!CheckFileExistence(filename)){
+		std::cout<<"\n File does not exist\n\n";
+		break;
+		}
+		//Add folder to passive scan
+		std::cout<<"\n Folder added to passive scan \n";
+		break;
+	case 4: //Display passive scan list
+		for(const auto& dirEntry : fs::recursive_directory_iterator(QuarantineFolder)){
+			std::cout<<"\n"<< dirEntry.path() <<"\n";
+		}
+	break;	
 	}
+}
+
+
 
 
 void MainMenu(){
@@ -81,6 +112,43 @@ void MainMenu(){
  		std::cout<<"\n Wrong input\n";
 		}
 	}
+
+
+
+
+void PassiveScanMenu(){
+	while(1==1){
+		std::cout<<"\nPassive scan menu opened\n";
+		std::cout<<"\nWhat do you wanna do: \n";
+		std::cout<<" 1 - Turn on passive scanning\n";
+		std::cout<<" 2 - Turn of passive scanning \n";
+		std::cout<<" 3 - Add folder to passive scan \n";
+		std::cout<<" 4 - Display folders added to passive scan \n";
+		std::cout<<" 5 - Back to main menu \n";
+		std::string dc;
+		std::cin >> dc;
+		int decision;
+		try{
+		decision = stoi(dc);
+		}
+		catch(...){
+		std::cout<<"\nEnter proper number\n";
+		}
+		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ||) {
+			PassiveScanActionMenu(decision);
+			std::cout<<"\n\n===========================\n\n";
+			continue;
+		}
+		else if(decision == 5){
+			std::cout<<"\nBack to main menu\n";
+			break;
+		}
+ 		std::cout<<"\n Wrong input\n";
+		}
+	}
+
+
+
 
 void Startup(){
 	//HashDatabase to Singleton, load it at the beggining from file
