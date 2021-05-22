@@ -21,6 +21,41 @@ void  AppendToFile(std::vector<std::string> hashes, std::string filename){
 		}
 	}
 
+
+void  AppendToFile(std::string foldername, std::string filename){
+	std::ofstream outfile;
+	outfile.open(filename, std::ios_base::app);
+	outfile<<foldername;
+	}
+
+
+void RemoveFromFile(std::string foldername, std::string filename){
+	std::vector <std::string> folders;
+	std::vector <std::string> newfolders;
+	std::ifstream fil(filename);
+	std::string folder;
+	while(getline(fil,folder)){
+		folders.push_back(hash);
+	}
+	for(int i =0; i < folders.size() ; i++){
+		newfolders.push_back(folders.at(i));
+		if(folders.at(i) == foldername){
+			newfolders.pop_back();
+			}		
+		}
+	ClearFile(filename);
+	AppendToFile(newfolders, filename);
+	}
+
+
+void ClearFile(std::string filename){
+	std::ofstream ofs;
+	ofs.open(filename, std::ofstream::out | std::ofstream::trunc);
+	ofs.close();
+	}
+
+
+
 bool CheckFileExistence(std::string filename)
 	{
 	std::ifstream infile(filename.c_str());
