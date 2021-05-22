@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <dirent.h>
+#include <errno.h>
 
 
 std::vector<std::string> ReadFile(std::string filename);
@@ -12,6 +14,8 @@ std::vector<std::string> ReadFile(std::string filename);
 void AppendToFile(std::vector<std::string> hashes,std::string filename);
 
 bool CheckFileExistence(std::string filename);
+
+bool CheckFolderExistence(std::string filename);
 
 #endif
 
