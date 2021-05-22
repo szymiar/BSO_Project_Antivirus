@@ -20,6 +20,12 @@ void AddFolderToPassiveScan(std::string foldername){
   
   }
 
+void RemoveFolderFromPassiveScan(std::string foldername){
+  //RemoveFromFile(foldername, FoldersList);
+  
+}
+
+
 
 void DisplayPassiveScanFoldersList(){
     for(const auto& dirEntry : fs::recursive_directory_iterator(FoldersList)){
@@ -29,8 +35,4 @@ void DisplayPassiveScanFoldersList(){
   }
 
 
-void RemoveFolderFromPassiveScan(std::string foldername){
-  //RemoveFromFile(foldername, FoldersList);
-  
-}
 
