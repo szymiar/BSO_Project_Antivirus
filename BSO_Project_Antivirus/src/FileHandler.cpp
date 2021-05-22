@@ -26,3 +26,18 @@ bool CheckFileExistence(std::string filename)
 	std::ifstream infile(filename.c_str());
 	return infile.good();
 	}
+
+bool CheckFolderExistence(std::string filename)
+	{
+	DIR* dir = opendir(filename);
+	if (dir) {
+   		 closedir(dir);
+		return true;
+		} 
+	else if (ENOENT == errno) {
+    		return false;
+		} 
+	else {
+   		return false;
+		}
+	}
