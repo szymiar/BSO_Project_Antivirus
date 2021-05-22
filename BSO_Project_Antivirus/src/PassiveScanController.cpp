@@ -22,7 +22,9 @@ void AddFolderToPassiveScan(std::string foldername){
 
 
 void DisplayPassiveScanFoldersList(){
-    //Display folder content
+    for(const auto& dirEntry : fs::recursive_directory_iterator(FoldersList)){
+			std::cout<<"\n"<< dirEntry.path() <<"\n";
+		}
   
   }
 
