@@ -10,6 +10,6 @@ void MoveFileToSafety(std::string filename){
 
 //Change file permissions so that only privileged entity can use it
 void ChangeFilePermissions(std::string filename){
-	chmod(filename.c_str(), S_IRUSR | S_IRGRP | S_IROTH);
+	chmod(filename.c_str(), S_IRUSR);
 
 }
