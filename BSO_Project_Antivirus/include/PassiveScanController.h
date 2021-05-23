@@ -5,6 +5,9 @@
 #include <sys/vfs.h>
 #include <string>
 
+
+const std::string PassiveScanListPath="passiveScanList/PassiveScanList.txt";
+
 void TurnOnPassiveScan();
 
 void TurnOffPassiveScan();
