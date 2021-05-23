@@ -4,7 +4,7 @@
 #include <stdlib.h>
 void MainMenu();
 
-void PassiveScanMainMenu();
+void PassiveScanMenu();
 
 void ActionMenu(int decision);
 
