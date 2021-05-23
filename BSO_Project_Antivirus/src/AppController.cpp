@@ -16,7 +16,7 @@ void ActionMenu(int decision){
 		std::cin>> filename;
 		if(!CheckFileExistence(filename)){
 			std::cout<<"\n File does not exist\n\n";
-		break;
+			break;
 		}
 		ScanFile(filename);
 		std::cout<<"\n\n File scan finished \n\n";
@@ -30,7 +30,7 @@ void ActionMenu(int decision){
 		}
 		ScanPackage(path);
 		std::cout<< "\nPackage scan finished\n\n";
-	break;
+		break;
 	case 3: //Update Hash Database (read from file)
 		std::cout<<"\n Enter the name of file from which to update database\n";
 		std::cin>>filename;
@@ -40,21 +40,21 @@ void ActionMenu(int decision){
 		}
 		UpdateHashDatabase(filename);
 		std::cout<<"\n Virus database updated\n";
-	break;
+		break;
 	case 4: //Display quarantined files
 		for(const auto& dirEntry : fs::recursive_directory_iterator(QuarantineFolder)){
 			std::cout<<"\n"<< dirEntry.path() <<"\n";
 		}
-	break;	
+		break;	
 	case 5: // Additional security service (advanced)
 		std::cout<<"\n Comming soon in advanced version\n";
-	break;
+		break;
 	case 6: //Passive scan menu
 		PassiveScanMainMenu();
-	break;
+		break;
 	case 7: //End program
 		EndProgram();
-	break;
+		break;
 
 	}
 }
