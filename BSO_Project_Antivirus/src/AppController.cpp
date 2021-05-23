@@ -25,8 +25,8 @@ void ActionMenu(int decision){
 		std::cout<<"\nEnter path\n";
 		std::cin >> path;
 		if(!CheckFolderExistence(path)){
-		std::cout<<"\n Wrong path\n\n";
-		break;
+			std::cout<<"\n Wrong path\n\n";
+			break;
 		}
 		ScanPackage(path);
 		std::cout<< "\nPackage scan finished\n\n";
@@ -35,8 +35,8 @@ void ActionMenu(int decision){
 		std::cout<<"\n Enter the name of file from which to update database\n";
 		std::cin>>filename;
 		if(!CheckFileExistence(filename)){
-		std::cout<<"\n File does not exist\n\n";
-		break;
+			std::cout<<"\n File does not exist\n\n";
+			break;
 		}
 		UpdateHashDatabase(filename);
 		std::cout<<"\n Virus database updated\n";
@@ -76,8 +76,8 @@ void PassiveScanActionMenu(int decision){
 		std::cout<<"\n Enter the name of folder to add\n";
 		std::cin>>filename;
 		if(!CheckFolderExistence(filename)){
-		std::cout<<"\n File does not exist\n\n";
-		break;
+			std::cout<<"\n File does not exist\n\n";
+			break;
 		}
 		AddFolderToPassiveScan(filename);
 		std::cout<<"\n Folder added to passive scan \n";
