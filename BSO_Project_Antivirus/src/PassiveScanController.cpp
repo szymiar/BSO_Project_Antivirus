@@ -1,4 +1,5 @@
 #include "../include/AntivirusController.h"
+#include "../include/PassiveScanController.h"
 #include "../include/FileHandler.h"
 namespace fs = std::filesystem;
 
