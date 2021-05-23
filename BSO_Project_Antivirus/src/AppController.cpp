@@ -51,7 +51,7 @@ void ActionMenu(int decision){
 		std::cout<<"\n Comming soon in advanced version\n";
 		break;
 	case 6: //Passive scan menu
-		PassiveScanMainMenu();
+		PassiveScanMenu();
 		break;
 	case 7: //End program
 		EndProgram();
@@ -70,7 +70,7 @@ void PassiveScanActionMenu(int decision){
 		std::cout<<"\n Passive scanning turned on\n";
 		break;
 	case 2: //Turn off
-		TurnOffPasiveScan();
+		TurnOffPassiveScan();
 		std::cout<<"\n Passive scanning turned off\n";
 		break;
 	case 3: //Add folder to passive scan
@@ -90,9 +90,7 @@ void PassiveScanActionMenu(int decision){
 		std::cout<<"\n Folder removed from passive scan \n";
 		break;	
 	case 5: //Display passive scan list
-		for(const auto& dirEntry : fs::recursive_directory_iterator(PassiveScanList)){
-			std::cout<<"\n"<< dirEntry.path() <<"\n";
-		}
+		DisplayPassiveScanFoldersList();
 		break;	
 	}
 }
@@ -149,7 +147,7 @@ void PassiveScanMenu(){
 		catch(...){
 		std::cout<<"\nEnter proper number\n";
 		}
-		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 || || decosion == 5) {
+		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ||  decision == 5) {
 			PassiveScanActionMenu(decision);
 			std::cout<<"\n\n===========================\n\n";
 			continue;

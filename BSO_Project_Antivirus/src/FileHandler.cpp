@@ -35,7 +35,7 @@ void RemoveFromFile(std::string foldername, std::string filename){
 	std::ifstream fil(filename);
 	std::string folder;
 	while(getline(fil,folder)){
-		folders.push_back(hash);
+		folders.push_back(folder);
 	}
 	for(int i =0; i < folders.size() ; i++){
 		newfolders.push_back(folders.at(i));
@@ -64,7 +64,7 @@ bool CheckFileExistence(std::string filename)
 
 bool CheckFolderExistence(std::string filename)
 	{
-	DIR* dir = opendir(filename);
+	DIR* dir = opendir(filename.c_str());
 	if (dir) {
    		 closedir(dir);
 		return true;

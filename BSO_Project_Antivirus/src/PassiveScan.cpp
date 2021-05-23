@@ -10,7 +10,7 @@
 }
 
 
-PasiveScan::PassiveScan(){
+PassiveScan::PassiveScan(){
 	PassiveScanList = ReadFile(PassiveScanListPath);
 }
 
@@ -25,8 +25,8 @@ void PassiveScan::AddFolder(std::string foldername){
 void PassiveScan::RemoveFolder(std::string foldername){
 	for(int i =0 ; i< PassiveScanList.size(); i++){
 		if( foldername == PassiveScanList.at(i)){
-				PassiveScanList.erase(i);
-		}		
+				PassiveScanList.erase(PassiveScanList.begin() + i- 1);
+		}
 	}
 }
 

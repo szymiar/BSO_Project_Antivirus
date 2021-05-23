@@ -4,10 +4,10 @@
 
 //Move dangerous file to safe folder that can not be easilly accessed
 void MoveFileToSafety(std::string filename){
-	ifstream ifs(filename, ios::in | ios::binary);
-	ofstream ofs(QuarantineFolder, ios::out | ios::binary);
+	std::ifstream ifs(filename, std::ios::in | std::ios::binary);
+	std::ofstream ofs(QuarantineFolder, std::ios::out | std::ios::binary);
 	ofs << ifs.rdbuf();
-	remove(oldname);
+	std::remove(filename.c_str());
 }
 
 //Change file permissions so that only privileged entity can use it
