@@ -3,6 +3,7 @@
 #include "../include/HashDatabase.h"
 #include "../include/QuarantineServiceHandler.h"
 #include "../include/PassiveScanController.h"
+#include "../include/PassiveScan.h"
 
 //using namespace std;
 namespace fs = std::filesystem;
@@ -168,6 +169,7 @@ void Startup(){
 	//HashDatabase to Singleton, load it at the beggining from file
 	//And then use it in IsDangerous
 	HashDatabase::GetInstance();
+	PassiveScan::GetInstance();
 	}
 
 void EndProgram(){
