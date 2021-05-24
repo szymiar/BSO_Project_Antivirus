@@ -90,7 +90,8 @@ bool HasTxtEnding(std::string filename){
 
 bool IsFile(std::string filename){
 	struct stat sb;
-	if(stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode))
+	std::filesystem::path p(filename);
+	if(stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode) && (std::filesystem::is_regular_file(p)||std::filesystem::is_directory(p) ))
 	{
 		return true;
 	}
