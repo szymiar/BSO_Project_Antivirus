@@ -17,14 +17,17 @@ void TurnOffPassiveScan(){
 	}
 
 
+
 void AddFolderToPassiveScan(std::string foldername){
     AppendToFile(foldername, PassiveScanListPath); 
     PassiveScan::GetInstance()->AddFolder(foldername);
   }
 
+
+
 void RemoveFolderFromPassiveScan(std::string foldername){
-	 RemoveFromFile(foldername, PassiveScanListPath);
-	 PassiveScan::GetInstance()->RemoveFolder(foldername);
+    RemoveFromFile(foldername, PassiveScanListPath);
+    PassiveScan::GetInstance()->RemoveFolder(foldername);
 }
 
 
