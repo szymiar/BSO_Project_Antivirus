@@ -5,6 +5,8 @@
 #include <sys/vfs.h>
 #include <string>
 
+const std::string VirusHashes = "virusHashDatabase/VirusHashes.txt";
+
 void ScanFile(std::string filename);
 
 void ScanPackage(std::string path);

@@ -37,7 +37,7 @@ void RemoveFromFile(std::string foldername, std::string filename){
 	while(getline(fil,folder)){
 		folders.push_back(folder);
 	}
-	for(int i =0; i < folders.size() ; i++){
+	for(unsigned int i =0; i < folders.size() ; i++){
 		newfolders.push_back(folders.at(i));
 		if(folders.at(i) == foldername){
 			newfolders.pop_back();
@@ -76,3 +76,14 @@ bool CheckFolderExistence(std::string filename)
    		return false;
 		}
 	}
+
+
+bool HasTxtEnding(std::string filename){
+	const std::string txt = ".txt";
+	if(filename.length() >= txt.length()){
+		return(0== filename.compare(filename.length() - txt.length(), txt.length(), txt));
+		}
+	else{
+		return false;
+		}
+} 

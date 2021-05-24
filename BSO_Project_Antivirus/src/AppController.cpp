@@ -39,6 +39,10 @@ void ActionMenu(int decision){
 			std::cout<<"\n File does not exist\n\n";
 			break;
 		}
+		if(!HasTxtEnding(filename)){
+			std::cout<<"\n Is not a proper file\n";
+			break;
+		}
 		UpdateHashDatabase(filename);
 		std::cout<<"\n Virus database updated\n";
 		break;

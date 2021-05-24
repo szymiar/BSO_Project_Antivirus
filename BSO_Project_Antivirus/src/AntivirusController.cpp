@@ -61,11 +61,6 @@ void QuarantineFile(std::string filename){
 
 void UpdateHashDatabase(std::string filename){
 	std::vector<std::string> hashes = ReadFile(filename);
-	AppendToFile(hashes, "virusHashDatabase/VirusHashes.txt");
-	//HashDatabase *hashDatabase = hashDatabase -> GetInstance();
+	AppendToFile(hashes, VirusHashes);
 	HashDatabase::GetInstance()->AddHashes(hashes); //Update singleton
-	
 	}
-
-
-
