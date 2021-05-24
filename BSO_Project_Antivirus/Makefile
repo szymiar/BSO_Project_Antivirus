@@ -10,7 +10,7 @@ install:
 	sudo chown root:root virusHashDatabase/VirusHashes.txt
 	sudo chown root:root passiveScanList/PassiveScanList.txt
 	sudo chmod 644 virusHashDatabase/VirusHashes.txt
-	sudo chmod 744 passiveScanList/PassiveScanList.txt
+	sudo chmod 644 passiveScanList/PassiveScanList.txt
 	sudo chown root:root virusHashDatabase
 	sudo chmod 711 virusHashDatabase
 	mkdir src/obj || true

@@ -2,7 +2,7 @@ IDIC := ../include
 ODIR := obj
 CC := g++	
 CFLAGS := -Wall -Wextra -lstdc++fs -std=c++17
-LDFLAGS := -lstdc++fs -std=c++17
+LDFLAGS := -lssl -lcrypto -lstdc++fs -std=c++17
 SRC :=$(wildcard *.cpp)	
 _OBJ := $(SRC:.cpp=.o)
 OBJ := $(patsubst %, $(ODIR)/%,$(_OBJ))	

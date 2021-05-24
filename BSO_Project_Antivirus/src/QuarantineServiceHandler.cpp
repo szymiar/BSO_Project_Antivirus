@@ -5,6 +5,7 @@
 //Move dangerous file to safe folder that can not be easilly accessed
 void MoveFileToSafety(std::string filename){
 	std::ifstream ifs(filename, std::ios::in | std::ios::binary);
+	std::string newname = QuarantineFolder + "/" + filename;
 	std::ofstream ofs(QuarantineFolder, std::ios::out | std::ios::binary);
 	ofs << ifs.rdbuf();
 	std::remove(filename.c_str());

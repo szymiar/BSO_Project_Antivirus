@@ -9,6 +9,7 @@ namespace fs = std::filesystem;
 
 void ScanFile(std::string filename){
 	std::string hash = GetFileHash(filename);
+	std::cout<<hash<<"\n";
 	if(IsDangerous(hash)){
 		std::cout<<filename <<":\n";	
 		std::cout<<"\nDangerous file \n ";
