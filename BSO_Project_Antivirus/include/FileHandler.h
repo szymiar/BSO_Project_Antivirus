@@ -7,7 +7,7 @@
 #include <fstream>
 #include <dirent.h>
 #include <errno.h>
-
+#include <sys/stat.h>
 
 std::vector<std::string> ReadFile(std::string filename);
 
@@ -25,6 +25,8 @@ bool CheckFileExistence(std::string filename);
 bool CheckFolderExistence(std::string filename);
 
 bool HasTxtEnding(std::string filename);
+
+bool IsFile(std::string filename);
 #endif
 
 

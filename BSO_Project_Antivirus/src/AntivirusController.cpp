@@ -8,19 +8,20 @@ namespace fs = std::filesystem;
 
 
 void ScanFile(std::string filename){
-	std::string hash = GetFileHash(filename);
-	std::cout<<hash<<"\n";
-	if(IsDangerous(hash)){
-		std::cout<<filename <<":\n";	
-		std::cout<<"\nDangerous file \n ";
-		QuarantineFile(filename);
+	if(IsFile(filename)){
+		std::string hash = GetFileHash(filename);
+		std::cout<<hash<<"\n";
+		if(IsDangerous(hash)){
+			std::cout<<filename <<":\n";	
+			std::cout<<"\nDangerous file \n ";
+			QuarantineFile(filename);
+			}
+		else{
+			std::cout<<filename <<":\n";
+			std::cout<<"\nFile is safe\n\n";
+			}
 		}
-	else{
-		std::cout<<filename <<":\n";
-		std::cout<<"\nFile is safe\n\n";
 	}
-	}
-
 
 void ScanPackage(std::string path){
 	std::string filename;
@@ -28,7 +29,7 @@ void ScanPackage(std::string path){
 	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
 
 		filename = dirEntry.path();
-		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0   || filename.rfind("/proc/",0)==0 || filename.rfind("/sys/kernel/debug",0)==0|| filename.rfind("/dev/",0)==0 || filename.rfind("/run",0)==0){
+		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0   || filename.rfind("/proc/",0)==0 || filename.rfind("/sys/kernel/debug",0)==0|| filename.rfind("/dev/",0)==0){
 			continue;
 		}
 		ScanFile(filename);

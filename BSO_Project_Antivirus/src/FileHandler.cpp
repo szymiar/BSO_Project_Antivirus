@@ -86,4 +86,13 @@ bool HasTxtEnding(std::string filename){
 	else{
 		return false;
 		}
-} 
+}
+
+bool IsFile(std::string filename){
+	struct stat sb;
+	if(stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode))
+	{
+		return true;
+	}
+	return false;
+	} 
