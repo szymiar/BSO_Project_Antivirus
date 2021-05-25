@@ -91,9 +91,19 @@ bool HasTxtEnding(std::string filename){
 bool IsFile(std::string filename){
 	struct stat sb;
 	std::filesystem::path p(filename);
-	if(stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode) && (std::filesystem::is_regular_file(p)||std::filesystem::is_directory(p) ))
+	if(stat(filename.c_str(), &sb) == 0 && S_ISREG(sb.st_mode) && (std::filesystem::is_regular_file(p) ))
 	{
 		return true;
 	}
 	return false;
-	} 
+	}
+
+bool IsEmpty(std::string filename){
+	std::cout<<"\nBeforemagicCheck\n";
+	std::ifstream in(filename);
+	if(!in.is_open()) {
+		return true;
+		}
+	return false;
+
+	}

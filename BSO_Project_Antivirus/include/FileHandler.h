@@ -29,6 +29,9 @@ bool CheckFolderExistence(std::string filename);
 bool HasTxtEnding(std::string filename);
 
 bool IsFile(std::string filename);
+
+bool IsEmpty(std::string filename);
+
 #endif
 
 

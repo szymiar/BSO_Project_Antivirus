@@ -19,6 +19,10 @@ void ActionMenu(int decision){
 			std::cout<<"\n File does not exist\n\n";
 			break;
 		}
+		if(CheckFolderExistence(filename)){
+			std::cout<<"\nIt is a directory\n";
+			break;
+		}
 		ScanFile(filename);
 		std::cout<<"\n\n File scan finished \n\n";
 		break;
