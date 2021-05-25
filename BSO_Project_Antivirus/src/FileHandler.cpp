@@ -99,7 +99,6 @@ bool IsFile(std::string filename){
 	}
 
 bool IsEmpty(std::string filename){
-	std::cout<<"\nBeforemagicCheck\n";
 	std::ifstream in(filename);
 	if(!in.is_open()) {
 		return true;
