@@ -18,4 +18,6 @@ void RemoveFolderFromPassiveScan(std::string foldername);
 
 void DisplayPassiveScanFoldersList();
 
+void PerformScanning();
+
 #endif

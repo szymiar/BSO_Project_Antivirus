@@ -7,7 +7,7 @@ namespace fs = std::filesystem;
 //const string FoldersList;
 
 void TurnOnPassiveScan(){
-	//Do something
+	PerformScanning();
 	}
 
 
@@ -35,8 +35,24 @@ void DisplayPassiveScanFoldersList(){
     for(unsigned int i =0 ; i< PassiveScan::GetInstance()->GetPassiveScanList().size() ; i++){
 		std::cout<<"\n"<< PassiveScan::GetInstance()->GetPassiveScanList().at(i) <<"\n";
 	}
- 
+
   }
+
+void PerformScanning(){
+	for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
+		std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
+		if(CheckFolderExistence(name)){ //Its a folder
+			ScanPackage(name);
+			}
+		else if(IsFile(name)&& CheckFileExistence(name)){ //Its a file
+			ScanFile(name);
+			}
+		else{
+			std::cout<<"\nCannot find a package or file named: "<<name<<"\n";
+		}
+	}
+
+}
 
 
 
