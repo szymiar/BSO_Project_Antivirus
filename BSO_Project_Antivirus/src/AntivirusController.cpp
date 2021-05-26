@@ -28,7 +28,7 @@ void ScanPackage(std::string path){
 	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
 
 		filename = dirEntry.path();
-		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0 || filename.rfind("/sys/kernel/debug",0)==0 ){
+		if(filename.rfind("/sys/kernel/debug",0)==0 ){
 			continue;
 		}
 		ScanFile(filename);
