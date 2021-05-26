@@ -99,10 +99,11 @@ bool IsFile(std::string filename){
 	}
 
 bool IsEmpty(std::string filename){
-	std::ifstream in(filename);
-	if(!in.is_open()) {
-		return true;
-		}
-	return false;
-
+	struct statfs sf;
+	statfs(filename.c_str(), &sf);
+	if(sf.f_type == 61267){
+		return false;
+	}
+	std::cout<<"\n"<<sf.f_type<<"\n";
+	return true;
 	}

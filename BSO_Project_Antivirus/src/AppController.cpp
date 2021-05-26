@@ -172,8 +172,6 @@ void PassiveScanMenu(){
 
 
 void Startup(){
-	//HashDatabase to Singleton, load it at the beggining from file
-	//And then use it in IsDangerous
 	HashDatabase::GetInstance();
 	PassiveScan::GetInstance();
 	}

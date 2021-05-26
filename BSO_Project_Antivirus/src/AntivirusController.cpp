@@ -28,7 +28,7 @@ void ScanPackage(std::string path){
 	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
 
 		filename = dirEntry.path();
-		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0   || filename.rfind("/dev/core",0)==0 || filename.rfind("/sys/kernel/debug",0)==0|| filename.rfind("/proc/kmsg",0)==0 || filename.rfind("/proc/kcore",0)==0 || filename.rfind("/proc/",0)==0 ){
+		if(filename.rfind("/sys/kernel/security/apparmor/revision",0)==0 || filename.rfind("/sys/kernel/debug",0)==0 ){
 			continue;
 		}
 		ScanFile(filename);
@@ -41,13 +41,11 @@ void ScanPackage(std::string path){
 
 
 bool IsDangerous(std::string hash){
-	//HashDatabase *hashDatabase = hashDatabase->GetInstance();
 	for(unsigned int i = 0; i< HashDatabase::GetInstance()->GetHashes().size(); i++){
 		if(hash == HashDatabase::GetInstance()->GetHashes().at(i)){
 			return true;
 		}
 	}
-
 	return false;
 	}
 
@@ -58,7 +56,7 @@ void QuarantineFile(std::string filename){
 	MoveFileToSafety(filename);
 	std::cout<<"\n\n Quarantine applied to the file \n\n";
 	}
-	
+
 
 void UpdateHashDatabase(std::string filename){
 	std::vector<std::string> hashes = ReadFile(filename);
