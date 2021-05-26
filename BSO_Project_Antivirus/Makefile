@@ -28,4 +28,11 @@ uninstall:
 .PHONY: update	
 update:	
 	cd src && sudo make	
+	sudo chown root:root antivirusBSO
+	sudo chmod 744 antivirusBSO	
+	
 
+.PHONY: add_path	
+add_path:	
+	pwd >> cd && temp.txt
+	
