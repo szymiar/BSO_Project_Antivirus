@@ -4,7 +4,7 @@
 #include <filesystem>
 #include <sys/vfs.h>
 #include <string>
-
+#include <unistd.h>
 
 const std::string PassiveScanListPath="passiveScanList/PassiveScanList.txt";
 

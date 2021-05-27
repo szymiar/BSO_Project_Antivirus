@@ -12,6 +12,8 @@
 
 PassiveScan::PassiveScan(){
 	PassiveScanList = ReadFile(PassiveScanListPath);
+	PassiveScanState = false;
+	PassiveScanPeriod = 20;
 }
 
 std::vector<std::string> PassiveScan::GetPassiveScanList(){
@@ -30,4 +32,21 @@ void PassiveScan::RemoveFolder(std::string foldername){
 	}
 }
 
+void PassiveScan::SetPassiveScanState(bool state){
+	this->PassiveScanState = state;
+	}
+
+bool PassiveScan::GetPassiveScanState(){
+	return this->PassiveScanState;
+	}
+
+void PassiveScan::SetPassiveScanPeriod(unsigned int period){
+	this->PassiveScanPeriod = period;
+	}
+
+unsigned int PassiveScan::GetPassiveScanPeriod(){
+	return this->PassiveScanPeriod;
+	}
+
 PassiveScan *PassiveScan::instance = 0;
+

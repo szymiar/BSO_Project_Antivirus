@@ -4,16 +4,19 @@
 #include "../include/PassiveScan.h"
 namespace fs = std::filesystem;
 
-//const string FoldersList;
+const bool on = true;
+const bool off = false;
+
 
 void TurnOnPassiveScan(){
+	PassiveScan::GetInstance()->SetPassiveScanState(on);
 	PerformScanning();
 	}
 
 
 
 void TurnOffPassiveScan(){
-	//Do something
+	PassiveScan::GetInstance()->SetPassiveScanState(off);
 	}
 
 
@@ -39,19 +42,24 @@ void DisplayPassiveScanFoldersList(){
   }
 
 void PerformScanning(){
-	for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
-		std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
-		if(CheckFolderExistence(name)){ //Its a folder
-			ScanPackage(name);
+	int j =0;
+	while(PassiveScan::GetInstance()->GetPassiveScanState()){
+		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
+		if(j==1) PassiveScan::GetInstance()->SetPassiveScanState(off);
+		j++;
+		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
+			std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
+			if(CheckFolderExistence(name)){ //Its a folder
+				ScanPackage(name);
+				}
+			else if(IsFile(name)&& CheckFileExistence(name)){ //Its a file
+				ScanFile(name);
+				}
+			else{
+				std::cout<<"\nCannot find a package or file named: "<<name<<"\n";
 			}
-		else if(IsFile(name)&& CheckFileExistence(name)){ //Its a file
-			ScanFile(name);
-			}
-		else{
-			std::cout<<"\nCannot find a package or file named: "<<name<<"\n";
 		}
 	}
-
 }
 
 

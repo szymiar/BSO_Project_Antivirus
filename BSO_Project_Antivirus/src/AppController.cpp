@@ -74,8 +74,8 @@ void PassiveScanActionMenu(int decision){
 	switch(decision){
 	case 1: //Turn on passive scanning
 		//Passive scaning handler/controller etc
+		std::cout<<"\nPassive scanning turned on"<<std::endl;
 		TurnOnPassiveScan();
-		std::cout<<"\n Passive scanning turned on\n";
 		break;
 	case 2: //Turn off
 		TurnOffPassiveScan();
@@ -141,7 +141,7 @@ void PassiveScanMenu(){
 		std::cout<<"\nPassive scan menu opened\n";
 		std::cout<<"\nWhat do you wanna do: \n";
 		std::cout<<" 1 - Turn on passive scanning\n";
-		std::cout<<" 2 - Turn of passive scanning \n";
+		std::cout<<" 2 - Turn off passive scanning \n";
 		std::cout<<" 3 - Add folder to passive scan \n";
 		std::cout<<" 4 - Remove folder from passive scan \n";
 		std::cout<<" 5 - Display folders added to passive scan \n";
