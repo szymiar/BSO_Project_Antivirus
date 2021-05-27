@@ -32,6 +32,10 @@ bool IsFile(std::string filename);
 
 bool CanBeScanned(std::string filename);
 
+void CopyFile(std::string filename, std::string destination);
+
+void PackFolderToZip(std::string foldername);
+
 #endif
 
 
