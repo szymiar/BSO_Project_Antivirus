@@ -5,9 +5,10 @@
 #include <sys/vfs.h>
 #include <string>
 #include <unistd.h>
+#include <thread>
 
 const std::string PassiveScanListPath="passiveScanList/PassiveScanList.txt";
-
+const std::string PassiveScanResults ="data/scanResults/PassiveScanResults.txt";
 void TurnOnPassiveScan();
 
 void TurnOffPassiveScan();

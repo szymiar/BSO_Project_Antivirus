@@ -30,7 +30,7 @@ bool HasTxtEnding(std::string filename);
 
 bool IsFile(std::string filename);
 
-bool IsEmpty(std::string filename);
+bool CanBeScanned(std::string filename);
 
 #endif
 

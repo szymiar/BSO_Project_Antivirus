@@ -13,11 +13,7 @@ std::string GetFileHash(std::string filename){
 	unsigned char hash[SHA256_DIGEST_LENGTH]= {0};
 
 	SHA256_CTX ctx;
-	std::cout<<filename;
 	SHA256_Init(&ctx);
-	if(IsEmpty(filename)){
-		return "";
-	}
 	while(fp.good()){
 		fp.read(buffer,buffer_size);
 		SHA256_Update(&ctx, buffer, fp.gcount());

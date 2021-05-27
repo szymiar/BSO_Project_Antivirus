@@ -7,23 +7,34 @@ namespace fs = std::filesystem;
 
 
 
-void ScanFile(std::string filename){
-	if(IsFile(filename)){
+void ScanFile(std::string filename, std::string resultFile){
+	AppendToFile(filename, resultFile);
+	if(IsFile(filename)&& CanBeScanned(filename)){
 		std::string hash = GetFileHash(filename);
-		std::cout<<hash<<"\n";
+		AppendToFile(hash, resultFile);
+		//std::cout<<hash<<"\n";
 		if(IsDangerous(hash)){
-			std::cout<<filename <<":\n";	
-			std::cout<<"\nDangerous file \n ";
-			QuarantineFile(filename);
-			}
+			std::string message = "File is dangerous";
+			AppendToFile(message,resultFile);
+			//std::cout<<filename <<":\n";	
+			//std::cout<<"\nDangerous file \n ";
+			QuarantineFile(filename, resultFile);
+		}
 		else{
-			std::cout<<filename <<":\n";
-			std::cout<<"\nFile is safe\n\n";
-			}
+			std::string message = "File is safe";
+			AppendToFile(message, resultFile);
+			//std::cout<<filename <<":\n";
+			//std::cout<<"\nFile is safe\n\n";
 		}
 	}
+	else{
+		std::string message = "File cannot be scanned\n Probably it is not a regular file";
+		AppendToFile(message,resultFile);
 
-void ScanPackage(std::string path){
+	}
+	}
+
+void ScanPackage(std::string path, std::string resultFile){
 	std::string filename;
 	for(auto&  dirEntry :  fs::recursive_directory_iterator(path,fs::directory_options::skip_permission_denied)){
 
@@ -31,10 +42,10 @@ void ScanPackage(std::string path){
 		if(filename.rfind("/sys/kernel/debug",0)==0 ){
 			continue;
 		}
-		ScanFile(filename);
+		ScanFile(filename,resultFile);
 	}
 
-	std::cout<< "\n Package scanned \n\n ";	
+	//std::cout<< "\n Package scanned \n\n ";	
 	}
 
 
@@ -51,10 +62,13 @@ bool IsDangerous(std::string hash){
 
 
 
-void QuarantineFile(std::string filename){
+void QuarantineFile(std::string filename, std::string resultFile){
 	ChangeFilePermissions(filename);
 	MoveFileToSafety(filename);
-	std::cout<<"\n\n Quarantine applied to the file \n\n";
+	std::string message = "Quarantine applied to the file";
+	AppendToFile(message,resultFile);
+
+	//std::cout<<"\n\n Quarantine applied to the file \n\n";
 	}
 
 
@@ -63,3 +77,13 @@ void UpdateHashDatabase(std::string filename){
 	AppendToFile(hashes, VirusHashes);
 	HashDatabase::GetInstance()->AddHashes(hashes); //Update singleton
 	}
+
+
+
+void DisplayScanResults(std::string filename){
+	std::vector<std::string> lines =ReadFile(filename);
+	for(int i =0; i<lines.size() ; i++){
+		std::cout<<"\n"<< lines.at(i)<<"\n";
+		}
+	}
+

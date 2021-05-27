@@ -2,14 +2,14 @@
 
 
 std::vector<std::string> ReadFile(std::string filename){
-	std::vector <std::string> hashes;
+	std::vector <std::string> lines;
 	std::ifstream fil(filename);
-	std::string hash;
-	while(getline(fil,hash)){
-		hashes.push_back(hash);
+	std::string line;
+	while(getline(fil,line)){
+		lines.push_back(line);
 	}
 
-	return hashes;
+	return lines;
 	}
 
 
@@ -25,7 +25,7 @@ void  AppendToFile(std::vector<std::string> hashes, std::string filename){
 void  AppendToFile(std::string foldername, std::string filename){
 	std::ofstream outfile;
 	outfile.open(filename, std::ios_base::app);
-	outfile<<foldername;
+	outfile<<foldername << "\n";
 	}
 
 
@@ -98,12 +98,12 @@ bool IsFile(std::string filename){
 	return false;
 	}
 
-bool IsEmpty(std::string filename){
+bool CanBeScanned(std::string filename){
 	struct statfs sf;
 	statfs(filename.c_str(), &sf);
 	if(sf.f_type == 61267){
-		return false;
+		return true;
 	}
-	std::cout<<"\n"<<sf.f_type<<"\n";
-	return true;
+	//std::cout<<"\n"<<sf.f_type<<"\n";
+	return false;
 	}

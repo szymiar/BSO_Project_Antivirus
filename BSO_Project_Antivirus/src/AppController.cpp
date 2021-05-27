@@ -23,7 +23,12 @@ void ActionMenu(int decision){
 			std::cout<<"\nIt is a directory\n";
 			break;
 		}
-		ScanFile(filename);
+		if(!CanBeScanned(filename)){
+			std::cout<<"\nFile cannot be scanned\n";
+			break;
+		}
+		ScanFile(filename, ActiveScanResults);
+		DisplayScanResults(ActiveScanResults);
 		std::cout<<"\n\n File scan finished \n\n";
 		break;
 	case 2: //Scan Package
@@ -33,7 +38,8 @@ void ActionMenu(int decision){
 			std::cout<<"\n Wrong path\n\n";
 			break;
 		}
-		ScanPackage(path);
+		ScanPackage(path,ActiveScanResults);
+		DisplayScanResults(ActiveScanResults);
 		std::cout<< "\nPackage scan finished\n\n";
 		break;
 	case 3: //Update Hash Database (read from file)

@@ -6,16 +6,18 @@
 #include <string>
 
 const std::string VirusHashes = "virusHashDatabase/VirusHashes.txt";
+const std::string ActiveScanResults = "data/scanResults/ActiveScanResults.txt";
+void ScanFile(std::string filename, std::string resultFile);
 
-void ScanFile(std::string filename);
-
-void ScanPackage(std::string path);
+void ScanPackage(std::string path, std::string resultFile);
 
 bool IsDangerous(std::string hash);
 
-void QuarantineFile(std::string filename);
+void QuarantineFile(std::string filename, std::string resultFile);
 
 void UpdateHashDatabase(std::string filename);
+
+void DisplayScanResults(std::string filename);
 
 #endif
 

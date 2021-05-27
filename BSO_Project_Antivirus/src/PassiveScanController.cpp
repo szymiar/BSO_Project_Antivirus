@@ -10,7 +10,9 @@ const bool off = false;
 
 void TurnOnPassiveScan(){
 	PassiveScan::GetInstance()->SetPassiveScanState(on);
-	PerformScanning();
+	std::thread t(PerformScanning);
+	t.detach();
+	//PerformScanning();
 	}
 
 
@@ -42,21 +44,22 @@ void DisplayPassiveScanFoldersList(){
   }
 
 void PerformScanning(){
-	int j =0;
+	//int j =0;
 	while(PassiveScan::GetInstance()->GetPassiveScanState()){
 		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
-		if(j==1) PassiveScan::GetInstance()->SetPassiveScanState(off);
-		j++;
+		//if(j==1) PassiveScan::GetInstance()->SetPassiveScanState(off);
+		//j++;
 		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
 			std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
 			if(CheckFolderExistence(name)){ //Its a folder
-				ScanPackage(name);
+				ScanPackage(name,PassiveScanResults);
 				}
 			else if(IsFile(name)&& CheckFileExistence(name)){ //Its a file
-				ScanFile(name);
+				ScanFile(name, PassiveScanResults);
 				}
 			else{
-				std::cout<<"\nCannot find a package or file named: "<<name<<"\n";
+				std::string message = "\nCannot find file or package named: " + name;
+				AppendToFile(message, PassiveScanResults);
 			}
 		}
 	}

@@ -1,0 +1,75 @@
+Makefile
+aac9522e54df364e55e29d64c20f426ce3b72eeea7521fb0de14d4ab8eca2884
+File is safe
+src/AntivirusController.cpp
+58842a48c55d7e74f0a9a8f89795986119a2f6b340f82f5e63c684679b669263
+File is safe
+src/compile_commands.json
+a88db879fa9cd354c5b6c7358ebe41b6b2ca008ba7eb622075a2c975b6e7ae25
+File is safe
+src/main.cpp
+9e6f66137bbd084e5986cd91b01e6b53708477f1a5a68d71d0906921cd31467d
+File is safe
+src/PassiveScan.cpp
+d5173352ec5a96d74806e2fac0dfe82327f6c3523278d4d63e5df715bba738d2
+File is safe
+src/AppController.cpp
+3fe3c7403d79313ed39b03deddccd1a9a10f94cdf73278d9a1efc11b95938b25
+File is safe
+src/out
+4c6d62fc0d16e579e2170ae1fc2c14df048b6209d9acea06bebb841b20e04c5b
+File is safe
+src/PassiveScanHandler.cpp
+8776c25947c318173e1b66addde0622054ea1644c39f1b3c34a1d60f1212b061
+File is safe
+src/PassiveScanController.cpp
+3ab9541b1b1658c6795cdba5ef9a956e250248054cc1e032bb9b73cf21c4b3ed
+File is safe
+src/Makefile
+ce83967c67a6519a2e79cb247418f71cef318ea5b7aec9adbf5c12fd833651b2
+File is safe
+src/QuarantineServiceHandler.cpp
+6184b11560241581fa3e87a90b897d64d0cf22a3ef2fdceb8966212240c4070b
+File is safe
+src/HashDatabase.cpp
+b12e6740cbd04b401ad447233a23902dd1ee979a27ce93a7eca7bfff96d9defa
+File is safe
+src/HashCalculator.cpp
+39ccd99099018faaf1794cfbef864ca2ce2fdb9951bdd4dcf2644ccc7a7a3cd9
+File is safe
+src/FileHandler.cpp
+f53300f9c5d02dba52648d7ac1e0990b4d7436352e9dde52023976b2e19a9048
+File is safe
+src/obj
+File cannot be scanned
+ Probably it is not a regular file
+src/obj/PassiveScanHandler.o
+1f6187c13553117b509c135d54410f758dbd2bc98e9af3773cd26c81cf515614
+File is safe
+src/obj/main.o
+34e93b8b05a5812a6e1a2efb9615f1018c50610242603d6a9dfbc69fffc3f4a6
+File is safe
+src/obj/FileHandler.o
+053aa21b907459d515560e476153afe0bb6019194927ca6a6186ee62423892ed
+File is safe
+src/obj/QuarantineServiceHandler.o
+af0d0379c08082aac8d256f90558854da3f8f4b5b9e544591fe1ed4bb0119116
+File is safe
+src/obj/AppController.o
+833fe012bf4b357cf55d1d2198ff39d92f273aaa62f7e9895e2a32fc611aa039
+File is safe
+src/obj/PassiveScanController.o
+f353d0b023b49f509cd8477456c1d4b45685c0aa43ee911563887460c3f7e39c
+File is safe
+src/obj/PassiveScan.o
+fdd94453f230c11ea42ef5be03c937a373fcb78e83db55b2036bddd0b178611b
+File is safe
+src/obj/AntivirusController.o
+4c791266abedc34d6be16cdb7499215decf624bfeb1225da86ec64b97ec43d05
+File is safe
+src/obj/HashDatabase.o
+e20101d42c89458e399a8c3304131cce092f513d56e0384971beabc9e45cb777
+File is safe
+src/obj/HashCalculator.o
+b8f738fa2368795cb2cfb86f4a53919ead23819034aa604bab62a4ae3d4bce37
+File is safe
