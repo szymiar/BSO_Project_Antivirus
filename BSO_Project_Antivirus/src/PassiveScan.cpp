@@ -13,7 +13,7 @@
 PassiveScan::PassiveScan(){
 	PassiveScanList = ReadFile(PassiveScanListPath);
 	PassiveScanState = false;
-	PassiveScanPeriod = 10;
+	PassiveScanPeriod = 20;
 }
 
 std::vector<std::string> PassiveScan::GetPassiveScanList(){

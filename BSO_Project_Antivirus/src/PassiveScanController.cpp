@@ -9,6 +9,7 @@ const bool off = false;
 
 
 void TurnOnPassiveScan(){
+	ClearFile(PassiveScanResults);
 	PassiveScan::GetInstance()->SetPassiveScanState(on);
 	std::thread t(PerformScanning);
 	t.detach();

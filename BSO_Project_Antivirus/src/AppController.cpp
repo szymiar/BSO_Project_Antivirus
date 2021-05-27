@@ -27,6 +27,7 @@ void ActionMenu(int decision){
 			std::cout<<"\nFile cannot be scanned\n";
 			break;
 		}
+		ClearFile(ActiveScanResults);
 		ScanFile(filename, ActiveScanResults);
 		DisplayScanResults(ActiveScanResults);
 		std::cout<<"\n\n File scan finished \n\n";
@@ -38,6 +39,7 @@ void ActionMenu(int decision){
 			std::cout<<"\n Wrong path\n\n";
 			break;
 		}
+		ClearFile(ActiveScanResults);
 		ScanPackage(path,ActiveScanResults);
 		DisplayScanResults(ActiveScanResults);
 		std::cout<< "\nPackage scan finished\n\n";
@@ -106,6 +108,9 @@ void PassiveScanActionMenu(int decision){
 	case 5: //Display passive scan list
 		DisplayPassiveScanFoldersList();
 		break;	
+	case 6: //Display current scanning results
+		DisplayScanResults(PassiveScanResults);
+		break;
 	}
 }
 
@@ -151,7 +156,8 @@ void PassiveScanMenu(){
 		std::cout<<" 3 - Add folder to passive scan \n";
 		std::cout<<" 4 - Remove folder from passive scan \n";
 		std::cout<<" 5 - Display folders added to passive scan \n";
-		std::cout<<" 6 - Back to main menu \n";
+		std::cout<<" 6 - Display current scanning results \n";
+		std::cout<<" 7 - Back to main menu \n";
 		std::string dc;
 		std::cin >> dc;
 		int decision;
@@ -161,12 +167,12 @@ void PassiveScanMenu(){
 		catch(...){
 		std::cout<<"\nEnter proper number\n";
 		}
-		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ||  decision == 5) {
+		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ||  decision == 5|| decision ==6) {
 			PassiveScanActionMenu(decision);
 			std::cout<<"\n\n===========================\n\n";
 			continue;
 		}
-		else if(decision == 6){
+		else if(decision == 7){
 			std::cout<<"\nBack to main menu\n";
 			break;
 		}
