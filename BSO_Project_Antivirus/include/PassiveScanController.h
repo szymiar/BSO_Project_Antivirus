@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <thread>
 
-const std::string PassiveScanListPath="passiveScanList/PassiveScanList.txt";
+const std::string PassiveScanListPath="data/passiveScanList/PassiveScanList.txt";
 const std::string PassiveScanResults ="data/scanResults/PassiveScanResults.txt";
 void TurnOnPassiveScan();
 

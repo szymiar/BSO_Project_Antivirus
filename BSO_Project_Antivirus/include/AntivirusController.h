@@ -5,7 +5,7 @@
 #include <sys/vfs.h>
 #include <string>
 
-const std::string VirusHashes = "virusHashDatabase/VirusHashes.txt";
+const std::string VirusHashes = "data/virusHashDatabase/VirusHashes.txt";
 const std::string ActiveScanResults = "data/scanResults/ActiveScanResults.txt";
 void ScanFile(std::string filename, std::string resultFile);
 

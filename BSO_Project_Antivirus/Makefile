@@ -1,18 +1,21 @@
 .PHONY: install	
 install:	
 	mkdir quarantine || true
+	mkdir data || true
+	mkdir data/scanResults || true
+	mkdir data/virusHashDatabase || true
+	mkdir data/passiveScanList || true
+	sudo touch data/scanResults/ActiveScanResults.txt
+	sudo touch data/scanResults/PassiveScanResults.txt
+	sudo touch data/passiveScanList/PassiveScanList.txt
 	sudo chown root:root quarantine
 	sudo chmod 711 quarantine
-	mkdir virusHashDatabase || true
-	mkdir passiveScanList || true
-	sudo touch passiveScanList/PassiveScanList.txt || true
-	sudo touch virusHashDatabase/VirusHashes.txt || true
-	sudo chown root:root virusHashDatabase/VirusHashes.txt
-	sudo chown root:root passiveScanList/PassiveScanList.txt
-	sudo chmod 644 virusHashDatabase/VirusHashes.txt
-	sudo chmod 644 passiveScanList/PassiveScanList.txt
-	sudo chown root:root virusHashDatabase
-	sudo chmod 711 virusHashDatabase
+	sudo chown root:root data/virusHashDatabase/VirusHashes.txt
+	sudo chown root:root data/passiveScanList/PassiveScanList.txt
+	sudo chmod 644 data/virusHashDatabase/VirusHashes.txt
+	sudo chmod 644 data/passiveScanList/PassiveScanList.txt
+	sudo chown root:root data/virusHashDatabase
+	sudo chmod 711 data/virusHashDatabase
 	mkdir src/obj || true
 	cd src && make
 	sudo chown root:root antivirusBSO
