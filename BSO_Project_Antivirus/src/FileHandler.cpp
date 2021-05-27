@@ -107,3 +107,17 @@ bool CanBeScanned(std::string filename){
 	//std::cout<<"\n"<<sf.f_type<<"\n";
 	return false;
 	}
+
+void CopyFile(std::string filename, std::string destination){
+	//Copy filename to destination
+	
+	}
+
+void PackFolderToZip(std::string foldername){
+	//Pack	
+	
+}
+void RemoveFile(std::string filename){
+	//Remove file
+	}
+
