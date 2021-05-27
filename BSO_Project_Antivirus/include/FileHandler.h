@@ -36,6 +36,8 @@ void CopyFile(std::string filename, std::string destination);
 
 void PackFolderToZip(std::string foldername);
 
+void RemoveFile(std::string filename);
+
 #endif
 
 
