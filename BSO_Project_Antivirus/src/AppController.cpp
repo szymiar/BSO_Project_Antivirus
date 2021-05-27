@@ -4,6 +4,7 @@
 #include "../include/QuarantineServiceHandler.h"
 #include "../include/PassiveScanController.h"
 #include "../include/PassiveScan.h"
+#include "../include/BackupServiceController.h"
 
 //using namespace std;
 namespace fs = std::filesystem;
@@ -113,7 +114,44 @@ void PassiveScanActionMenu(int decision){
 		break;
 	}
 }
-
+void BackupServiceActionMenu(int decision){
+	std::string filename;
+	std::string path;
+	switch(decision){
+	case 1: //Add file to backup
+			
+		std::cout<<"\n Enter file name\n";
+		std::cin>> filename;
+		if(!CheckFileExistence(filename)){
+			std::cout<<"\n File does not exist\n\n";
+			break;
+		}
+		if(CheckFolderExistence(filename)){
+			std::cout<<"\nIt is a directory\n";
+			break;
+		}
+		if(!CanBeScanned(filename)){
+			std::cout<<"\nFile cannot be used\n";
+			break;
+		}
+		std::cout<<"\nFile added to backup"<<std::endl;
+		AddFileToBackup();
+		break;
+	case 2: //Remove file from backup
+		std::cout<<"\n Enter the name of file to remove\n";
+		std::cin>>filename;
+		RemoveFileFromBackup(filename);
+		std::cout<<"\n File removed from backup \n";
+		break;	
+	case 3: //Display backup list
+		DisplayBackupList();
+		break;
+	case 4: //Send zip to external backup
+		SendZipToExternalBackup();
+		std::cout<<"\nTo implement\n;
+		break;	
+	}
+}
 
 
 
@@ -180,7 +218,36 @@ void PassiveScanMenu(){
 		}
 	}
 
-
+void BackupServiceMenu(){
+	while(1==1){
+		std::cout<<"\nBackup service menu opened\n";
+		std::cout<<"\nWhat do you wanna do: \n";
+		std::cout<<" 1 - Add file to backup\n";
+		std::cout<<" 2 - Remove file from backup \n";
+		std::cout<<" 3 - Display files in backup \n";
+		std::cout<<" 4 - Send zip to external \n";
+		std::cout<<" 5 - Back to main menu \n";
+		std::string dc;
+		std::cin >> dc;
+		int decision;
+		try{
+		decision = stoi(dc);
+		}
+		catch(...){
+		std::cout<<"\nEnter proper number\n";
+		}
+		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ) {
+			BackupServiceActionMenu(decision);
+			std::cout<<"\n\n===========================\n\n";
+			continue;
+		}
+		else if(decision == 5){
+			std::cout<<"\nBack to main menu\n";
+			break;
+		}
+ 		std::cout<<"\n Wrong input\n";
+		}
+	}
 
 
 void Startup(){
