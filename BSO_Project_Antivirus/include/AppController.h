@@ -6,9 +6,13 @@ void MainMenu();
 
 void PassiveScanMenu();
 
+void BackupServiceMenu();
+
 void ActionMenu(int decision);
 
 void PassiveScanActionMenu(int decision);
+
+void BackupServiceActionMenu(int decision);
 
 void EndProgram();
 
