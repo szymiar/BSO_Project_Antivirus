@@ -104,13 +104,13 @@ bool CanBeScanned(std::string filename){
 	if(sf.f_type == 61267){
 		return true;
 	}
-	//std::cout<<"\n"<<sf.f_type<<"\n";
 	return false;
 	}
 
 void CopyFile(std::string filename, std::string destination){
-	//Copy filename to destination
-	
+	std::ifstream src(filename, std::ios::binary);
+	std::ofstream dst(destination, std::ios::binary);
+	dst<<src.rdbuf();
 	}
 
 void PackFolderToZip(std::string foldername){
@@ -118,6 +118,8 @@ void PackFolderToZip(std::string foldername){
 	
 }
 void RemoveFile(std::string filename){
-	//Remove file
+	if(IsFile(filename) && CheckFileExistence(filename) && !CheckFolderExistence(filename)){
+		std::remove(filename.c_str());
 	}
+}
 

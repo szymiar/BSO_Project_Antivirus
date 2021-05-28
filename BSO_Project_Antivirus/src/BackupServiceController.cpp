@@ -1,29 +1,31 @@
 #include "../include/BackupServiceController.h"
 #include "../include/FileHandler.h"
 
-std::vector<std::string> BackupFolderList = ReadFile(BackupFolderListPath);
 
 void AddFileToBackup(std::string filename){
-    //AppendToFile(filename, BackupFolderListPath); 
-    //CopyFile(filename, BackupFolderPath); //Copy file(filename) to backup folder
+    	std::size_t index = filename.find_last_of("/");
+	std::string name = filename.substr(index+1, filename.size()+1);
+	AppendToFile(name, BackupFolderListPath);
+    	std::string newLocation = BackupFolderPath + "/" + name;
+	CopyFile(filename, newLocation);
   }
 
 
 
 void RemoveFileFromBackup(std::string filename){
-    //RemoveFromFile(filename, BackupFolderListPath);
-    //std::string copy = BackupFolderPath + "/" + filename
-    //RemoveFile(filename);   
-  //BackupFolderList = ReadFile(BackupFolderListPath); //Reload
+	RemoveFromFile(filename, BackupFolderListPath);
+   	std::string path = BackupFolderPath + "/" + filename;
+   	RemoveFile(path);
 }
 
 
 void DisplayBackupList(){
-    for(unsigned int i =0 ; i< BackupFolderList ; i++){
+    	std::vector <std::string> BackupFolderList = ReadFile(BackupFolderListPath);
+	for(unsigned int i =0 ; i< BackupFolderList.size() ; i++){
 		    std::cout<<"\n"<< BackupFolderList.at(i) <<"\n";
 	  }
 }
-  
+ 
 
 void SendZipToExternalBackup(){
   PackFolderToZip(BackupFolderPath);

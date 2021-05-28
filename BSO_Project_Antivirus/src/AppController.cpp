@@ -65,7 +65,7 @@ void ActionMenu(int decision){
 		}
 		break;	
 	case 5: // Additional security service (advanced)
-		std::cout<<"\n Comming soon in advanced version\n";
+		BackupServiceMenu();
 		break;
 	case 6: //Passive scan menu
 		PassiveScanMenu();
@@ -135,7 +135,7 @@ void BackupServiceActionMenu(int decision){
 			break;
 		}
 		std::cout<<"\nFile added to backup"<<std::endl;
-		AddFileToBackup();
+		AddFileToBackup(filename);
 		break;
 	case 2: //Remove file from backup
 		std::cout<<"\n Enter the name of file to remove\n";
@@ -148,7 +148,7 @@ void BackupServiceActionMenu(int decision){
 		break;
 	case 4: //Send zip to external backup
 		SendZipToExternalBackup();
-		std::cout<<"\nTo implement\n;
+		std::cout<<"\nTo implement\n";
 		break;	
 	}
 }

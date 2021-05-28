@@ -82,7 +82,7 @@ void UpdateHashDatabase(std::string filename){
 
 void DisplayScanResults(std::string filename){
 	std::vector<std::string> lines =ReadFile(filename);
-	for(int i =0; i<lines.size() ; i++){
+	for(unsigned int i =0; i<lines.size() ; i++){
 		std::cout<<"\n"<< lines.at(i)<<"\n";
 		}
 	}
