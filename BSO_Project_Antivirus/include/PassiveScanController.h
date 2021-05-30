@@ -6,6 +6,12 @@
 #include <string>
 #include <unistd.h>
 #include <thread>
+#include <dirent.h>
+#include <iterator>
+#include <syslog.h>
+#include <cstdlib>
+
+
 
 const std::string PassiveScanListPath="data/passiveScanList/PassiveScanList.txt";
 const std::string PassiveScanResults ="data/scanResults/PassiveScanResults.txt";

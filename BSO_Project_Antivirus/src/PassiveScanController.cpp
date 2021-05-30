@@ -44,6 +44,41 @@ void DisplayPassiveScanFoldersList(){
 }
 
 void PerformScanning(){
+	
+	pid_t pid, sid;
+	pid = fork();
+	if(pid>0)
+	{
+		exit(EXIT_SUCCESS);
+	}
+	else if(pid<0)
+	{
+		exit(EXIT_FAILURE);
+	}
+	umask(0);
+	openlog("daemon-name", LOG_NOWAIT | LOG_PID , LOG_USER);
+	syslog(LOG_NOTICE, "Successfully started daemon-name");
+	sid =setsid();
+	if(sid<0)
+	{
+		syslog(LOG_ERR, "Could not generate session ID for child process");
+		exit(EXIT_FAILURE);
+	}
+	std::cout<<"\nCheck\n";
+	std::cout<<"\nCheck 2\n";
+	/*if((chdir("/")) < 0)
+	{	
+		std::cout<<"\nlol\n";
+		syslog(LOG_ERR, "Could not change working directory to /");
+		exit(EXIT_FAILURE);
+	}*/
+	std::cout<<"\nCheck5\n";
+	//close(STDIN_FILENO);
+	//close(STDOUT_FILENO);
+	//close(STDERR_FILENO);
+
+	std::cout<<"\nCheck 1\n";
+
 	while(PassiveScan::GetInstance()->GetPassiveScanState()){
 		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
 		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
@@ -60,4 +95,8 @@ void PerformScanning(){
 			}
 		}
 	}
+	std::cout<<"\nCheck 2\n";
+	syslog(LOG_NOTICE, "Stopping daemon-name");
+	closelog();
+	exit(EXIT_SUCCESS);
 }

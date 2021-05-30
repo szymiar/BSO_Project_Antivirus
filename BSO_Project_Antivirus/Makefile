@@ -11,12 +11,15 @@ install:
 	sudo touch data/scanResults/ActiveScanResults.txt
 	sudo touch data/scanResults/PassiveScanResults.txt
 	sudo touch data/passiveScanList/PassiveScanList.txt
+	sudo touch data/passiveScanList/PassiveScanState.txt
 	sudo chown root:root quarantine
 	sudo chown root:root data/BackupService/BackupFolder
 	sudo chmod 711 quarantine
 	sudo chmod 711 data/BackupService/BackupFolder
 	sudo chown root:root data/virusHashDatabase/VirusHashes.txt
 	sudo chown root:root data/passiveScanList/PassiveScanList.txt
+	sudo chown root:root data/passiveScanList/PassiveScanState.txt
+	sudo chmod 611 data/passiveScanList/PassiveScanState.txt
 	sudo chmod 644 data/virusHashDatabase/VirusHashes.txt
 	sudo chmod 644 data/BackupService/BackupFolderList.txt
 	sudo chmod 644 data/passiveScanList/PassiveScanList.txt
