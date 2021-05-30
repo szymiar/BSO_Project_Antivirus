@@ -13,9 +13,9 @@
 
 
 
-const std::string PassiveScanListPath="data/passiveScanList/PassiveScanList.txt";
-const std::string PassiveScanResults ="data/scanResults/PassiveScanResults.txt";
-const std::string PassiveScanStatePath="data/passiveScanList/PassiveScanState.txt";
+const std::string PassiveScanListPath="/usr/local/share/BSO_Project_Antivirus/data/passiveScanList/PassiveScanList.txt";
+const std::string PassiveScanResults ="/usr/local/share/BSO_Project_Antivirus/data/scanResults/PassiveScanResults.txt";
+const std::string PassiveScanStatePath="/usr/local/share/BSO_Project_Antivirus/data/passiveScanList/PassiveScanState.txt";
 
 void TurnOnPassiveScan();
 
