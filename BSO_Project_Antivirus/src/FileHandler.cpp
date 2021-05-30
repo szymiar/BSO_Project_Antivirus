@@ -12,6 +12,14 @@ std::vector<std::string> ReadFile(std::string filename){
 	return lines;
 	}
 
+std::string ReadFirstLineFromFile(std::string filename){
+	std::ifstream fil(filename);
+	std::string line;
+	getline(fil,line);
+	return line;
+
+
+	}
 
 void  AppendToFile(std::vector<std::string> hashes, std::string filename){
 	std::ofstream outfile;

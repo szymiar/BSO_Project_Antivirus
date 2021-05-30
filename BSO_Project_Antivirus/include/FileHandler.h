@@ -17,6 +17,7 @@ void AppendToFile(std::vector<std::string> hashes,std::string filename);
 
 void AppendToFile(std::string foldername, std::string filename);
 
+std::string ReadFirstLineFromFile(std::string filename);
 
 void RemoveFromFile(std::string foldername, std::string filename);
 

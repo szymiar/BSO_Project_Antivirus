@@ -11,6 +11,8 @@ const bool off = false;
 void TurnOnPassiveScan(){
 	ClearFile(PassiveScanResults);
 	PassiveScan::GetInstance()->SetPassiveScanState(on);
+	ClearFile(PassiveScanStatePath);
+	AppendToFile("on", PassiveScanStatePath);
 	std::thread t(PerformScanning);
 	t.detach();
 }
@@ -19,6 +21,8 @@ void TurnOnPassiveScan(){
 
 void TurnOffPassiveScan(){
 	PassiveScan::GetInstance()->SetPassiveScanState(off);
+	ClearFile(PassiveScanStatePath);
+	AppendToFile("off", PassiveScanStatePath);
 }
 
 
@@ -64,20 +68,16 @@ void PerformScanning(){
 		syslog(LOG_ERR, "Could not generate session ID for child process");
 		exit(EXIT_FAILURE);
 	}
-	std::cout<<"\nCheck\n";
-	std::cout<<"\nCheck 2\n";
 	/*if((chdir("/")) < 0)
 	{	
 		std::cout<<"\nlol\n";
 		syslog(LOG_ERR, "Could not change working directory to /");
 		exit(EXIT_FAILURE);
 	}*/
-	std::cout<<"\nCheck5\n";
 	//close(STDIN_FILENO);
 	//close(STDOUT_FILENO);
 	//close(STDERR_FILENO);
 
-	std::cout<<"\nCheck 1\n";
 
 	while(PassiveScan::GetInstance()->GetPassiveScanState()){
 		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
@@ -94,8 +94,12 @@ void PerformScanning(){
 				AppendToFile(message, PassiveScanResults);
 			}
 		}
+		std::string current_state = ReadFirstLineFromFile(PassiveScanStatePath);
+		if(current_state == "off")
+		{
+			PassiveScan::GetInstance()-> SetPassiveScanState(off);
+		}
 	}
-	std::cout<<"\nCheck 2\n";
 	syslog(LOG_NOTICE, "Stopping daemon-name");
 	closelog();
 	exit(EXIT_SUCCESS);
