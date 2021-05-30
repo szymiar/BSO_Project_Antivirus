@@ -1,14 +1,16 @@
 .PHONY: install	
 install:	
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/quarantine || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/scanResults || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/virusHashDatabase || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/passiveScanList || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService || true
-	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolder || true
-	sudo cp -R test /usr/local/share/BSO_Project_Antivirus/test || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/quarantine
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/scanResults
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/virusHashDatabase
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/passiveScanList
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolder
+	sudo cp -R test /usr/local/share/BSO_Project_Antivirus/test
+	sudo cp -R include /usr/local/include/BSO_Project_Antivirus
+	sudo cp -R src /usr/local/src/BSO_Project_Antivirus
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolderList.txt
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/scanResults/ActiveScanResults.txt
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/scanResults/PassiveScanResults.txt
@@ -39,7 +41,8 @@ uninstall:
 	cd src && sudo make clean	
 	sudo rm -r /usr/local/share/BSO_Project_Antivirus
 	sudo rm -r src/obj
-	
+	sudo rm -r /usr/local/include/BSO_Project_Antivirus
+	sudo rm -r /usr/local/src/BSO_Project_Antivirus
 
 
 
