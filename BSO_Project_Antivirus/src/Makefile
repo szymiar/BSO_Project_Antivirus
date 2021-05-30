@@ -6,7 +6,7 @@ LDFLAGS := -lssl -lcrypto -lstdc++fs -pthread -std=c++17
 SRC :=$(wildcard *.cpp)	
 _OBJ := $(SRC:.cpp=.o)
 OBJ := $(patsubst %, $(ODIR)/%,$(_OBJ))	
-OUT := ../antivirusBSO	
+OUT := /usr/local/bin/antivirusBSO	
 $(OUT): $(OBJ)	
 	$(CC) $^ -o $@ $(LDFLAGS)	
 	
