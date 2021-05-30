@@ -8,7 +8,7 @@
 #include <fstream>
 #include <iostream>
 
-const std::string QuarantineFolder="/usr/local/share/BSO_Project_Antivirus/quarantine";
+const std::string QuarantineFolder="/usr/local/share/BSO_Project_Antivirus/quarantine/";
 void MoveFileToSafety(std::string filename);
 void ChangeFilePermissions(std::string filename);
 

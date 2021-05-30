@@ -26,13 +26,14 @@ install:
 	sudo chown root:root data/virusHashDatabase
 	sudo chmod 711 data/virusHashDatabase
 	sudo mkdir /usr/local/share/BSO_Project_Antivirus || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/quarantine || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data/scanResults || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data/virusHashDatabase || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data/passiveScanList || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService || true
-	mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolder || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/quarantine || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/scanResults || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/virusHashDatabase || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/passiveScanList || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolder || true
+	sudo cp -R test /usr/local/share/BSO_Project_Antivirus/test || true
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/BackupService/BackupFolderList.txt
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/scanResults/ActiveScanResults.txt
 	sudo touch /usr/local/share/BSO_Project_Antivirus/data/scanResults/PassiveScanResults.txt
