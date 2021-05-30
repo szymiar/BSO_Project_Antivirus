@@ -25,6 +25,9 @@ install:
 	sudo chmod 644 data/passiveScanList/PassiveScanList.txt
 	sudo chown root:root data/virusHashDatabase
 	sudo chmod 711 data/virusHashDatabase
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus || true
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data
+	sudo mkdir /usr/local/share/BSO_Project_Antivirus/data/
 	mkdir src/obj || true
 	cd src && make
 	sudo chown root:root antivirusBSO
