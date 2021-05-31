@@ -13,7 +13,7 @@ void TurnOnPassiveScan(){
 	PassiveScan::GetInstance()->SetPassiveScanState(on);
 	ClearFile(PassiveScanStatePath);
 	AppendToFile("on", PassiveScanStatePath);
-	std::thread t(PerformScanning);
+	std::thread t(PerformThreadScanning);
 	t.detach();
 }
 
@@ -47,7 +47,27 @@ void DisplayPassiveScanFoldersList(){
 
 }
 
-void PerformScanning(){
+void PerformThreadScanning(){
+	while(PassiveScan::GetInstance()->GetPassiveScanState()){
+		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
+		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
+			std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
+			if(CheckFolderExistence(name)){ //Its a folder
+				ScanPackage(name,PassiveScanResults);
+				}
+			else if(IsFile(name)&& CheckFileExistence(name)){ //Its a file
+				ScanFile(name, PassiveScanResults);
+				}
+			else{
+				std::string message = "\nCannot find file or package named: " + name;
+				AppendToFile(message, PassiveScanResults);
+			}
+		}
+	}
+}
+
+
+void PerformDaemonScanning(){
 	
 	pid_t pid, sid;
 	pid = fork();
