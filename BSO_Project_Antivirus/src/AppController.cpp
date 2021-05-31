@@ -6,7 +6,6 @@
 #include "../include/PassiveScanController.h"
 #include "../include/QuarantineServiceHandler.h"
 
-//using namespace std;
 namespace fs = std::filesystem;
 
 void ActionMenu(int decision){
@@ -114,12 +113,13 @@ void PassiveScanActionMenu(int decision){
 		break;
 	}
 }
+
+
 void BackupServiceActionMenu(int decision){
 	std::string filename;
 	std::string path;
 	switch(decision){
 	case 1: //Add file to backup
-			
 		std::cout<<"\n Enter file name\n";
 		std::cin>> filename;
 		if(!CheckFileExistence(filename)){

@@ -5,7 +5,6 @@
 void AddFileToBackup(std::string filename){
     	std::size_t index = filename.find_last_of("/");
 	std::string name = filename.substr(index+1, filename.size()+1);
-	//AppendToFile(name, BackupFolderListPath);
 	int i =1;
 	std::string temp;
     	std::string newLocation = BackupFolderPath + "/" + name;

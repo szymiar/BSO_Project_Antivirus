@@ -10,7 +10,7 @@ std::vector<std::string> ReadFile(std::string filename){
 	}
 
 	return lines;
-	}
+}
 
 std::string ReadFirstLineFromFile(std::string filename){
 	std::ifstream fil(filename);
@@ -19,7 +19,7 @@ std::string ReadFirstLineFromFile(std::string filename){
 	return line;
 
 
-	}
+}
 
 void  AppendToFile(std::vector<std::string> hashes, std::string filename){
 	std::ofstream outfile;
@@ -27,14 +27,14 @@ void  AppendToFile(std::vector<std::string> hashes, std::string filename){
 	for(unsigned int i = 0; i< hashes.size(); i++){
 		outfile << hashes.at(i) << "\n";
 		}
-	}
+}
 
 
 void  AppendToFile(std::string foldername, std::string filename){
 	std::ofstream outfile;
 	outfile.open(filename, std::ios_base::app);
 	outfile<<foldername << "\n";
-	}
+}
 
 
 void RemoveFromFile(std::string foldername, std::string filename){
@@ -53,14 +53,14 @@ void RemoveFromFile(std::string foldername, std::string filename){
 		}
 	ClearFile(filename);
 	AppendToFile(newfolders, filename);
-	}
+}
 
 
 void ClearFile(std::string filename){
 	std::ofstream ofs;
 	ofs.open(filename, std::ofstream::out | std::ofstream::trunc);
 	ofs.close();
-	}
+}
 
 
 
@@ -68,7 +68,7 @@ bool CheckFileExistence(std::string filename)
 	{
 	std::ifstream infile(filename.c_str());
 	return infile.good();
-	}
+}
 
 bool CheckFolderExistence(std::string filename)
 	{
@@ -83,7 +83,7 @@ bool CheckFolderExistence(std::string filename)
 	else {
    		return false;
 		}
-	}
+}
 
 
 bool HasTxtEnding(std::string filename){
@@ -104,7 +104,7 @@ bool IsFile(std::string filename){
 		return true;
 	}
 	return false;
-	}
+}
 
 bool CanBeScanned(std::string filename){
 	struct statfs sf;
@@ -113,13 +113,13 @@ bool CanBeScanned(std::string filename){
 		return true;
 	}
 	return false;
-	}
+}
 
 void CopyFile(std::string filename, std::string destination){
 	std::ifstream src(filename, std::ios::binary);
 	std::ofstream dst(destination, std::ios::binary);
 	dst<<src.rdbuf();
-	}
+}
 
 
 void RemoveFile(std::string filename){

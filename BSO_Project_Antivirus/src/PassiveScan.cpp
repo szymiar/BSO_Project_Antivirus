@@ -3,12 +3,6 @@
 
 
 
-/* PassiveScan *PassiveScan::GetInstance(){
-	if(!instance){
-	instance = new PassiveScan;}
-	return instance;
-}*/
-
 PassiveScan &PassiveScan::GetInstance(){
 	static PassiveScan instance;
 	return instance;

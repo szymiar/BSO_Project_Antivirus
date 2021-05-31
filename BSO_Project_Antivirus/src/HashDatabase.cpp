@@ -3,10 +3,7 @@
 
 
  HashDatabase &HashDatabase::GetInstance(){
-//HashDatabase& HashDatabase::GetInstance(){
 	static HashDatabase instance;
-//	if(!instance){
-//	instance = new HashDatabase;}
 	return instance;
 }
 
@@ -23,10 +20,6 @@ std::vector<std::string> HashDatabase::GetHashes(){
 void HashDatabase::AddHashes(std::vector<std::string> newHashes){
 	Hashes.insert(Hashes.end(), newHashes.begin(), newHashes.end());
 }
-
-//const int &l =0;
-//HashDatabase& HashDatabase::instance = l;
-//HashDatabase *HashDatabase::instance = 0;
 
 
 

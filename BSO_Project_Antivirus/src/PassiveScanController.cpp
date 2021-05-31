@@ -68,7 +68,6 @@ void PerformThreadScanning(){
 
 
 void PerformDaemonScanning(){
-	
 	pid_t pid, sid;
 	pid = fork();
 	if(pid>0)
@@ -88,16 +87,6 @@ void PerformDaemonScanning(){
 		syslog(LOG_ERR, "Could not generate session ID for child process");
 		exit(EXIT_FAILURE);
 	}
-	/*if((chdir("/")) < 0)
-	{	
-		std::cout<<"\nlol\n";
-		syslog(LOG_ERR, "Could not change working directory to /");
-		exit(EXIT_FAILURE);
-	}*/
-	//close(STDIN_FILENO);
-	//close(STDOUT_FILENO);
-	//close(STDERR_FILENO);
-
 
 	while(PassiveScan::GetInstance().GetPassiveScanState()){
 		sleep(PassiveScan::GetInstance().GetPassiveScanPeriod());
