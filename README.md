@@ -1,5 +1,5 @@
 # BSO_Project_Antivirus
-Simple antivirus for linux kernel system
+Simple antivirus for linux Ubuntu 18.04.5-desktop-amd64, ubuntu-20.04.1-desktop-amd64 or debian-10.7.0-amd64
 
 
 # Usage
