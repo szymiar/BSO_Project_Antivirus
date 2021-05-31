@@ -14,6 +14,7 @@ PassiveScan::PassiveScan(){
 	PassiveScanList = ReadFile(PassiveScanListPath);
 	PassiveScanState = false;
 	PassiveScanPeriod = 20;
+	IsDaemonOn = false;
 }
 
 std::vector<std::string> PassiveScan::GetPassiveScanList(){
@@ -46,6 +47,14 @@ void PassiveScan::SetPassiveScanPeriod(unsigned int period){
 
 unsigned int PassiveScan::GetPassiveScanPeriod(){
 	return this->PassiveScanPeriod;
+	}
+
+void PassiveScan::SetIsDaemonOn(bool b){
+	this->IsDaemonOn = b;
+	}
+
+bool PassiveScan::GetIsDaemonOn(){
+	return this->IsDaemonOn;
 	}
 
 PassiveScan *PassiveScan::instance = 0;

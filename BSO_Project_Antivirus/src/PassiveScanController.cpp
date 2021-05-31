@@ -23,6 +23,7 @@ void TurnOffPassiveScan(){
 	PassiveScan::GetInstance()->SetPassiveScanState(off);
 	ClearFile(PassiveScanStatePath);
 	AppendToFile("off", PassiveScanStatePath);
+	PassiveScan::GetInstance()->SetIsDaemonOn(off);
 }
 
 
@@ -118,6 +119,7 @@ void PerformDaemonScanning(){
 		if(current_state == "off")
 		{
 			PassiveScan::GetInstance()-> SetPassiveScanState(off);
+			PassiveScan::GetInstance()->SetIsDaemonOn(off);
 		}
 	}
 	syslog(LOG_NOTICE, "Stopping daemon-name");

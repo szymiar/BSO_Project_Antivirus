@@ -12,6 +12,8 @@ std::vector<std::string> PassiveScanList;
 
 bool PassiveScanState;  //true - on ;;; false - off
 
+bool IsDaemonOn;
+
 unsigned int PassiveScanPeriod;  //In seconds
 
 PassiveScan();
@@ -28,6 +30,10 @@ void SetPassiveScanState(bool state);
 bool GetPassiveScanState();
 
 void SetPassiveScanPeriod(unsigned int period);
+
+void SetIsDaemonOn(bool b);
+
+bool GetIsDaemonOn();
 
 unsigned int GetPassiveScanPeriod();
 
