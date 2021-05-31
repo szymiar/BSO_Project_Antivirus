@@ -256,5 +256,11 @@ void Startup(){
 	}
 
 void EndProgram(){
+	if(PassiveScan::GetInstance()->GetPassiveScanState()){
+		ClearFile(PassiveScanStatePath);
+		AppendToFile("on", PassiveScanStatePath);
+		std::thread t(PerformDaemonScanning);
+		t.detach();
+	}
 	exit(3); //Calls global object destructors
 	}
