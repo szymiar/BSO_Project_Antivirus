@@ -5,8 +5,19 @@
 void AddFileToBackup(std::string filename){
     	std::size_t index = filename.find_last_of("/");
 	std::string name = filename.substr(index+1, filename.size()+1);
-	AppendToFile(name, BackupFolderListPath);
+	//AppendToFile(name, BackupFolderListPath);
+	int i =1;
+	std::string temp;
     	std::string newLocation = BackupFolderPath + "/" + name;
+	temp = newLocation;
+	while(CheckFileExistence(temp)){
+		temp = newLocation + "(" + std::to_string(i) + ")";
+		i++;
+	}
+	newLocation = temp;
+	std::size_t index2 = newLocation.find_last_of("/");
+	name = newLocation.substr(index2+1, newLocation.size()+1);
+	AppendToFile(name, BackupFolderListPath);
 	CopyFile(filename, newLocation);
   }
 
@@ -27,11 +38,3 @@ void DisplayBackupList(){
 }
  
 
-void SendZipToExternalBackup(){
-  PackFolderToZip(BackupFolderPath);
-  //SendZip();
-}
-
-void DownloadZipFromExternalBackup(){
-  //Maybe 
-}

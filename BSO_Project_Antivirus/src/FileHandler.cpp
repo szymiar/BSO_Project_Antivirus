@@ -121,10 +121,7 @@ void CopyFile(std::string filename, std::string destination){
 	dst<<src.rdbuf();
 	}
 
-void PackFolderToZip(std::string foldername){
-	//Pack	
-	
-}
+
 void RemoveFile(std::string filename){
 	if(IsFile(filename) && CheckFileExistence(filename) && !CheckFolderExistence(filename)){
 		std::remove(filename.c_str());

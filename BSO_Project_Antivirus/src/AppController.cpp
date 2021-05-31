@@ -146,10 +146,6 @@ void BackupServiceActionMenu(int decision){
 	case 3: //Display backup list
 		DisplayBackupList();
 		break;
-	case 4: //Send zip to external backup
-		SendZipToExternalBackup();
-		std::cout<<"\nTo implement\n";
-		break;	
 	}
 }
 
@@ -225,8 +221,7 @@ void BackupServiceMenu(){
 		std::cout<<" 1 - Add file to backup\n";
 		std::cout<<" 2 - Remove file from backup \n";
 		std::cout<<" 3 - Display files in backup \n";
-		std::cout<<" 4 - Send zip to external \n";
-		std::cout<<" 5 - Back to main menu \n";
+		std::cout<<" 4 - Back to main menu \n";
 		std::string dc;
 		std::cin >> dc;
 		int decision;
@@ -236,12 +231,12 @@ void BackupServiceMenu(){
 		catch(...){
 		std::cout<<"\nEnter proper number\n";
 		}
-		if(decision == 1 || decision == 2 || decision == 3 ||  decision == 4 ) {
+		if(decision == 1 || decision == 2 || decision == 3 ) {
 			BackupServiceActionMenu(decision);
 			std::cout<<"\n\n===========================\n\n";
 			continue;
 		}
-		else if(decision == 5){
+		else if(decision == 4){
 			std::cout<<"\nBack to main menu\n";
 			break;
 		}
