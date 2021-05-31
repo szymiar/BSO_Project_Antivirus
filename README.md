@@ -1,5 +1,5 @@
 # BSO_Project_Antivirus
-Simple antivirus for linux kernel system
+Simple antivirus for linux system
 
 
 # Usage
