@@ -5,13 +5,14 @@
             "-c",
             "-Wall",
             "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
-            "obj/HashDatabase.o",
-            "HashDatabase.cpp"
+            "obj/AntivirusController.o",
+            "AntivirusController.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
-        "file": "HashDatabase.cpp"
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "AntivirusController.cpp"
     },
     {
         "arguments": [
@@ -19,12 +20,28 @@
             "-c",
             "-Wall",
             "-Wextra",
+            "-pthread",
+            "-std=c++17",
+            "-o",
+            "obj/BackupServiceController.o",
+            "BackupServiceController.cpp"
+        ],
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "BackupServiceController.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
             "obj/QuarantineServiceHandler.o",
             "QuarantineServiceHandler.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
         "file": "QuarantineServiceHandler.cpp"
     },
     {
@@ -33,26 +50,13 @@
             "-c",
             "-Wall",
             "-Wextra",
-            "-std=c++17",
-            "-o",
-            "obj/main.o",
-            "main.cpp"
-        ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
-        "file": "main.cpp"
-    },
-    {
-        "arguments": [
-            "c++",
-            "-c",
-            "-Wall",
-            "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
             "obj/FileHandler.o",
             "FileHandler.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
         "file": "FileHandler.cpp"
     },
     {
@@ -61,12 +65,43 @@
             "-c",
             "-Wall",
             "-Wextra",
+            "-pthread",
+            "-std=c++17",
+            "-o",
+            "obj/HashDatabase.o",
+            "HashDatabase.cpp"
+        ],
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "HashDatabase.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-pthread",
+            "-std=c++17",
+            "-o",
+            "obj/PassiveScan.o",
+            "PassiveScan.cpp"
+        ],
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "PassiveScan.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
             "obj/HashCalculator.o",
             "HashCalculator.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
         "file": "HashCalculator.cpp"
     },
     {
@@ -75,13 +110,14 @@
             "-c",
             "-Wall",
             "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
-            "obj/AppController.o",
-            "AppController.cpp"
+            "obj/PassiveScanController.o",
+            "PassiveScanController.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
-        "file": "AppController.cpp"
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "PassiveScanController.cpp"
     },
     {
         "arguments": [
@@ -89,12 +125,28 @@
             "-c",
             "-Wall",
             "-Wextra",
+            "-pthread",
             "-std=c++17",
             "-o",
-            "obj/AntivirusController.o",
-            "AntivirusController.cpp"
+            "obj/main.o",
+            "main.cpp"
         ],
-        "directory": "/home/szymiar/BSO/BSO_Project_Antivirus/src",
-        "file": "AntivirusController.cpp"
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "main.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-pthread",
+            "-std=c++17",
+            "-o",
+            "obj/AppController.o",
+            "AppController.cpp"
+        ],
+        "directory": "/home/szymiar/BSO_Proj/BSO_Project_Antivirus/BSO_Project_Antivirus/src",
+        "file": "AppController.cpp"
     }
 ]

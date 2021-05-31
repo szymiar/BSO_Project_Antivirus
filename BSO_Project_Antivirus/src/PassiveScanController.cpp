@@ -1,8 +1,7 @@
 #include "../include/AntivirusController.h"
-#include "../include/PassiveScanController.h"
 #include "../include/FileHandler.h"
 #include "../include/PassiveScan.h"
-namespace fs = std::filesystem;
+#include "../include/PassiveScanController.h"
 
 const bool on = true;
 const bool off = false;

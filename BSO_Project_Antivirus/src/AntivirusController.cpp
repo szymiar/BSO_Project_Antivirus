@@ -1,6 +1,6 @@
 #include "../include/AntivirusController.h"
-#include "../include/HashCalculator.h"
 #include "../include/FileHandler.h"
+#include "../include/HashCalculator.h"
 #include "../include/HashDatabase.h"
 #include "../include/QuarantineServiceHandler.h"
 namespace fs = std::filesystem;

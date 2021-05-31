@@ -1,16 +1,17 @@
 #ifndef HASHCALCULATOR_H
 #define HASHCALCULATOR_H
 
-#include <iostream>
+
 #include <cerrno>
+#include <cstdlib>
+#include <cstring>
+#include <fstream>
 #include <iomanip>
+#include <iostream>
+#include <openssl/sha.h>
 #include <sstream>
 #include <stdexcept>
-#include <cstdlib>
-#include <fstream>
-#include <cstring>
 #include <string>
-#include <openssl/sha.h>
 
 std::string GetFileHash(std::string filename);
 

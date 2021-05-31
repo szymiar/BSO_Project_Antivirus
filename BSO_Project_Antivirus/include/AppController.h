@@ -1,7 +1,7 @@
 #ifndef APPCONTROLLER_H
 #define APPCONTROLLER_H
 
-#include <stdlib.h>
+#include <cstdlib>
 void MainMenu();
 
 void PassiveScanMenu();

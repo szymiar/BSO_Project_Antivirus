@@ -1,5 +1,5 @@
-#include "../include/HashDatabase.h"
 #include "../include/AntivirusController.h"
+#include "../include/HashDatabase.h"
 
 
  HashDatabase &HashDatabase::GetInstance(){

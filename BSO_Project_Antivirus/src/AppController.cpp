@@ -1,10 +1,10 @@
-#include "../include/AppController.h"
 #include "../include/AntivirusController.h"
-#include "../include/HashDatabase.h"
-#include "../include/QuarantineServiceHandler.h"
-#include "../include/PassiveScanController.h"
-#include "../include/PassiveScan.h"
+#include "../include/AppController.h"
 #include "../include/BackupServiceController.h"
+#include "../include/HashDatabase.h"
+#include "../include/PassiveScan.h"
+#include "../include/PassiveScanController.h"
+#include "../include/QuarantineServiceHandler.h"
 
 //using namespace std;
 namespace fs = std::filesystem;

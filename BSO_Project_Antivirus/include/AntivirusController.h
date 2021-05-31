@@ -2,9 +2,8 @@
 #define ANTIVIRUSCONTROLLER_H
 
 #include <filesystem>
-#include <sys/vfs.h>
 #include <string>
-#include <time.h>
+#include <sys/vfs.h>
 
 const std::string VirusHashes = "/usr/local/share/BSO_Project_Antivirus/data/virusHashDatabase/VirusHashes.txt";
 const std::string ActiveScanResults = "/usr/local/share/BSO_Project_Antivirus/data/scanResults/ActiveScanResults.txt";

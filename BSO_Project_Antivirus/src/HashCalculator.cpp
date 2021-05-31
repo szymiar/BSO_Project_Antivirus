@@ -1,5 +1,5 @@
-#include "../include/HashCalculator.h"
 #include "../include/FileHandler.h"
+#include "../include/HashCalculator.h"
 std::string GetFileHash(std::string filename){
 	std::ifstream fp(filename, std::ios::in | std::ios::binary);
 	if(not fp.good()){
