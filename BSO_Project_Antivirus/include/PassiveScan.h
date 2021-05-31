@@ -6,6 +6,15 @@
 class PassiveScan
 {
 private:
+
+PassiveScan();
+~PassiveScan();
+
+PassiveScan(const PassiveScan &instance);
+
+const PassiveScan &operator=(const PassiveScan &instance);
+
+
 static PassiveScan *instance;
 
 std::vector<std::string> PassiveScanList;
@@ -16,9 +25,10 @@ bool IsDaemonOn;
 
 unsigned int PassiveScanPeriod;  //In seconds
 
-PassiveScan();
+//PassiveScan();
 public: 
- static PassiveScan *GetInstance();
+// static PassiveScan *GetInstance();
+static PassiveScan &GetInstance();
 std::vector<std::string> GetPassiveScanList();
 
 void AddFolder(std::string foldername);

@@ -15,8 +15,5 @@ void RemoveFileFromBackup(std::string filename);
 
 void DisplayBackupList();
 
-void SendZipToExternalBackup();
-
-void DownloadZipFromExternalBackup();
 
 #endif

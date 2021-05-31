@@ -6,13 +6,21 @@
 class HashDatabase
 {
 private:
-static HashDatabase *instance;
+//static HashDatabase *instance;
 //static HashDatabase& instance;
-std::vector<std::string> Hashes;
 
 HashDatabase();
+~HashDatabase();
+
+HashDatabase(const HashDatabase &instance);
+
+const HashDatabase &operator=(const HashDatabase &instance);
+
+std::vector<std::string> Hashes;
+
+//HashDatabase();
 public: 
- static HashDatabase *GetInstance();
+ static HashDatabase &GetInstance();
 //static HashDatabase& GetInstance();
 std::vector<std::string> GetHashes();
 

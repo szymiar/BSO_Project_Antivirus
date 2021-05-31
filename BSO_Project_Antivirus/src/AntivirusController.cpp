@@ -52,8 +52,8 @@ void ScanPackage(std::string path, std::string resultFile){
 
 
 bool IsDangerous(std::string hash){
-	for(unsigned int i = 0; i< HashDatabase::GetInstance()->GetHashes().size(); i++){
-		if(hash == HashDatabase::GetInstance()->GetHashes().at(i)){
+	for(unsigned int i = 0; i< HashDatabase::GetInstance().GetHashes().size(); i++){
+		if(hash == HashDatabase::GetInstance().GetHashes().at(i)){
 			return true;
 		}
 	}
@@ -75,7 +75,7 @@ void QuarantineFile(std::string filename, std::string resultFile){
 void UpdateHashDatabase(std::string filename){
 	std::vector<std::string> hashes = ReadFile(filename);
 	AppendToFile(hashes, VirusHashes);
-	HashDatabase::GetInstance()->AddHashes(hashes); //Update singleton
+	HashDatabase::GetInstance().AddHashes(hashes); //Update singleton
 	}
 
 

@@ -250,12 +250,12 @@ void Startup(){
 	PassiveScan::GetInstance();
 	std::string current_state = ReadFirstLineFromFile(PassiveScanStatePath);
 	if(current_state == "on"){
-		PassiveScan::GetInstance()->SetIsDaemonOn(true);
+		PassiveScan::GetInstance().SetIsDaemonOn(true);
 		}
 	}
 
 void EndProgram(){
-	if(PassiveScan::GetInstance()->GetPassiveScanState()&& !PassiveScan::GetInstance()->GetIsDaemonOn() ){
+	if(PassiveScan::GetInstance().GetPassiveScanState()&& !PassiveScan::GetInstance().GetIsDaemonOn() ){
 		ClearFile(PassiveScanStatePath);
 		AppendToFile("on", PassiveScanStatePath);
 		std::thread th(PerformDaemonScanning);

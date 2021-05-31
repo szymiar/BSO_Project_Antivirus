@@ -10,7 +10,7 @@ const bool off = false;
 
 void TurnOnPassiveScan(){
 	ClearFile(PassiveScanResults);
-	PassiveScan::GetInstance()->SetPassiveScanState(on);
+	PassiveScan::GetInstance().SetPassiveScanState(on);
 	ClearFile(PassiveScanStatePath);
 	AppendToFile("on", PassiveScanStatePath);
 	std::thread t(PerformThreadScanning);
@@ -20,39 +20,39 @@ void TurnOnPassiveScan(){
 
 
 void TurnOffPassiveScan(){
-	PassiveScan::GetInstance()->SetPassiveScanState(off);
+	PassiveScan::GetInstance().SetPassiveScanState(off);
 	ClearFile(PassiveScanStatePath);
 	AppendToFile("off", PassiveScanStatePath);
-	PassiveScan::GetInstance()->SetIsDaemonOn(off);
+	PassiveScan::GetInstance().SetIsDaemonOn(off);
 }
 
 
 
 void AddFolderToPassiveScan(std::string foldername){
  	 AppendToFile(foldername, PassiveScanListPath); 
-   	 PassiveScan::GetInstance()->AddFolder(foldername);
+   	 PassiveScan::GetInstance().AddFolder(foldername);
 }
 
 
 
 void RemoveFolderFromPassiveScan(std::string foldername){
   	 RemoveFromFile(foldername, PassiveScanListPath);
-   	 PassiveScan::GetInstance()->RemoveFolder(foldername);
+   	 PassiveScan::GetInstance().RemoveFolder(foldername);
 }
 
 
 void DisplayPassiveScanFoldersList(){
-    for(unsigned int i =0 ; i< PassiveScan::GetInstance()->GetPassiveScanList().size() ; i++){
-		std::cout<<"\n"<< PassiveScan::GetInstance()->GetPassiveScanList().at(i) <<"\n";
+    for(unsigned int i =0 ; i< PassiveScan::GetInstance().GetPassiveScanList().size() ; i++){
+		std::cout<<"\n"<< PassiveScan::GetInstance().GetPassiveScanList().at(i) <<"\n";
 	}
 
 }
 
 void PerformThreadScanning(){
-	while(PassiveScan::GetInstance()->GetPassiveScanState()){
-		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
-		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
-			std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
+	while(PassiveScan::GetInstance().GetPassiveScanState()){
+		sleep(PassiveScan::GetInstance().GetPassiveScanPeriod());
+		for(unsigned int i =0; i< PassiveScan::GetInstance().GetPassiveScanList().size(); i++){
+			std::string name = PassiveScan::GetInstance().GetPassiveScanList().at(i);
 			if(CheckFolderExistence(name)){ //Its a folder
 				ScanPackage(name,PassiveScanResults);
 				}
@@ -100,10 +100,10 @@ void PerformDaemonScanning(){
 	//close(STDERR_FILENO);
 
 
-	while(PassiveScan::GetInstance()->GetPassiveScanState()){
-		sleep(PassiveScan::GetInstance()->GetPassiveScanPeriod());
-		for(unsigned int i =0; i< PassiveScan::GetInstance() -> GetPassiveScanList().size(); i++){
-			std::string name = PassiveScan::GetInstance()->GetPassiveScanList().at(i);
+	while(PassiveScan::GetInstance().GetPassiveScanState()){
+		sleep(PassiveScan::GetInstance().GetPassiveScanPeriod());
+		for(unsigned int i =0; i< PassiveScan::GetInstance().GetPassiveScanList().size(); i++){
+			std::string name = PassiveScan::GetInstance().GetPassiveScanList().at(i);
 			if(CheckFolderExistence(name)){ //Its a folder
 				ScanPackage(name,PassiveScanResults);
 				}
@@ -118,8 +118,8 @@ void PerformDaemonScanning(){
 		std::string current_state = ReadFirstLineFromFile(PassiveScanStatePath);
 		if(current_state == "off")
 		{
-			PassiveScan::GetInstance()-> SetPassiveScanState(off);
-			PassiveScan::GetInstance()->SetIsDaemonOn(off);
+			PassiveScan::GetInstance().SetPassiveScanState(off);
+			PassiveScan::GetInstance().SetIsDaemonOn(off);
 		}
 	}
 	syslog(LOG_NOTICE, "Stopping daemon-name");

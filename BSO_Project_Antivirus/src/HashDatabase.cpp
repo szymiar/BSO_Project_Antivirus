@@ -2,14 +2,15 @@
 #include "../include/AntivirusController.h"
 
 
- HashDatabase *HashDatabase::GetInstance(){
+ HashDatabase &HashDatabase::GetInstance(){
 //HashDatabase& HashDatabase::GetInstance(){
-//	HashDatabase instance;
-	if(!instance){
-	instance = new HashDatabase;}
+	static HashDatabase instance;
+//	if(!instance){
+//	instance = new HashDatabase;}
 	return instance;
 }
 
+HashDatabase::~HashDatabase(){}
 
 HashDatabase::HashDatabase(){
 	Hashes = ReadFile(VirusHashes);
@@ -25,7 +26,7 @@ void HashDatabase::AddHashes(std::vector<std::string> newHashes){
 
 //const int &l =0;
 //HashDatabase& HashDatabase::instance = l;
-HashDatabase *HashDatabase::instance = 0;
+//HashDatabase *HashDatabase::instance = 0;
 
 
 
