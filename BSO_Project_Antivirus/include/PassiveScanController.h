@@ -27,6 +27,8 @@ void RemoveFolderFromPassiveScan(std::string foldername);
 
 void DisplayPassiveScanFoldersList();
 
-void PerformScanning();
+void PerformThreadScanning();
+
+void PerformDaemonScanning();
 
 #endif
